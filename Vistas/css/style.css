@@ -1,0 +1,30 @@
+.sombra{
+    /* el codigo de la sombra la  sacamos de la pagina cssmatic */
+    box-shadow: 0px 5px 15px 0px rgba(102,102,102,0.67);
+    background-color: var(--blanco);
+    border-radius:1rem;
+    padding:2rem;
+}
+.contenedor{
+    max-width: 110rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.producto{
+    margin: 0 2rem;
+}
+.contendor__producto{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+}
+
+.Imagen__producto{
+    width: 20rem;
+    height: 20rem;
+}
