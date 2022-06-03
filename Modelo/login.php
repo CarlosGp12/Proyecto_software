@@ -4,7 +4,6 @@ require_once ('database.php');
     $con=$db->conectar();
     session_start();
 
-   
 if (isset($_POST['Login'])) {
 
     $user_data='usuario='.$_POST['usuario'].'&password='.$_POST['password'];
