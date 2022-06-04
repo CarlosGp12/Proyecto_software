@@ -83,7 +83,7 @@ else
 		<div class="form-row py-2">
 				<label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
 				<div class="col-sm-2">
-					<input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código">
+					<input type="text" class="form-control is invalid" id="codigo" name="codigo" placeholder="Código" readonly required>
 				</div>
 			</div>
 			
