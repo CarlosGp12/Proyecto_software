@@ -79,7 +79,14 @@ else
 	<h1 class="text-center">Edición de producto</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
-
+		
+		<div class="form-row py-2">
+				<label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código">
+				</div>
+			</div>
+			
 		<div class="form-row py-2">
             <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">

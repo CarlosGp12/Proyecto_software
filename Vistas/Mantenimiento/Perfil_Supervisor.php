@@ -47,13 +47,12 @@ else
   <div class="d-flex">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 970px;">
       <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <img src="../../imagenes/1.png" width="50" height="50" alt="">
         <span class="fs-4">Farmacia</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="Opciones.php" class="nav-link text-white" aria-current="page">
+          <a href="../index_t.php" class="nav-link text-white" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             <i class="bi bi-house"></i>
@@ -65,7 +64,7 @@ else
 
     <div class="edi">
       <h1 class="text-center">Productos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new.html">Nuevo Producto</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
