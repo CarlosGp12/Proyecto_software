@@ -22,7 +22,7 @@ if (isset($_POST['Login'])) {
                 
                 $_SESSION['User']=$_POST['usuario'];
             
-                 header("Location: http://localhost/Proyecto_software/Vistas/index_t.html");
+                 header("Location: http://localhost/Proyecto_software/Vistas/index_t.php");
                 exit();
             
             }else{

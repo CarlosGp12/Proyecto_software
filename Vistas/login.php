@@ -35,9 +35,6 @@
                 <?php }?>
 
 
-       <!-- <input type="text" placeholder="Username" autofocus>
-        
-                -->
         
                 <input type="password" name="password" placeholder="Contraseña" >
 

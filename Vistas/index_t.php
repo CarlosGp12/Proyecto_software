@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if(isset($_SESSION['User']))
+{
+}
+else
+{
+    header("location:http://localhost/Proyecto_software/Vistas/login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,12 +83,17 @@
                 <div class="container d-flex flex-wrap justify-content-end">
                     <div class="text-end">
                         <button type="button" class="btn btn-light text-dark me-2">Bienvenido </button>
-                        <button type="button" class="btn btn-primary">Log-out</button>
+                        <a href="../Modelo/logout.php?logout"><button type="button" class="btn btn-primary">Log-out</button></a>
                     </div>
                 </div>
             </div>
         </header>
-    
+        <main class="contenedor sombra">
+            <h1> Bienvenido  
+                <i> 
+                    <?php echo $_SESSION['User'] ?> 
+                </i>
+            </h1>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
