@@ -36,7 +36,7 @@ else
     }
 
     function editar(codigo) {
-      document.location.href = "../update.php?id_admin=" + codigo;
+      document.location.href = "update.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -62,8 +62,6 @@ else
         </li>
       </ul>
     </div>
-
-
 
     <div class="edi">
       <h1 class="text-center">Productos</h1>

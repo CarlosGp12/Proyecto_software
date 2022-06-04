@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (isset($_SESSION['User'])) 
+{
+}
+else 
+{
+	header("location:http://localhost/Proyecto_software/Vistas/login.php");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -18,6 +31,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script type='text/javascript' src="../js/jquery-1.7.1.min.js"> </script>
     <script type='text/javascript'>
         $(function () {
             $("#guardar").click(function () {
@@ -32,7 +46,7 @@
         }
         window.onload = cargarcontroladorCombo;
     </script>
-    <script type='text/javascript' src="../js/jquery-1.7.1.min.js"> </script>
+
 </head>
 
 <body
@@ -46,7 +60,6 @@
     <h1 class="text-center">Ingresar nuevo producto</h1>
     <form id="datos">
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
-
 
         <div class="form-row py-2">
             <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
