@@ -80,8 +80,15 @@ else
                 </div>
             </div>
             <div class="px-3 py-2 border-bottom mb-3">
-                <div class="container d-flex flex-wrap justify-content-end">
-                    <div class="text-end">
+                <div class="container d-flex">
+                    <div class="me-auto p-2 align-self-center">
+                        <h2> Bienvenido  
+                            <i> 
+                                <?php echo $_SESSION['User'] ?> 
+                            </i>
+                        </h2>
+                    </div>
+                    <div class="text-end align-self-center">
                         <button type="button" class="btn btn-light text-dark me-2">Bienvenido </button>
                         <a href="../Modelo/logout.php?logout"><button type="button" class="btn btn-primary">Log-out</button></a>
                     </div>
@@ -89,12 +96,10 @@ else
             </div>
         </header>
         <main class="contenedor sombra">
-            <h1> Bienvenido  
-                <i> 
-                    <?php echo $_SESSION['User'] ?> 
-                </i>
-            </h1>
+
+            <iframe src="ListadoProductos.php" width="100%" height="400px"></iframe>
         
+        </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
