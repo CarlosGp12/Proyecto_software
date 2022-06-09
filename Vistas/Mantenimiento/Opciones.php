@@ -71,13 +71,13 @@ if(isset($_SESSION['username']))
                 </a>
             </li>
             <li>
-                <a href="Supervisor/Supervisor.php" class="nav-link text-white">
+                <a href="Supervisor/Supervisor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
                     Supervisor
                 </a>
-                <a href="Vendedor/PerfilAdminTb.php" class="nav-link text-white">
+                <a href="Vendedor/Vendedor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>

@@ -20,10 +20,10 @@ switch ($_POST['opcion']) {
         break;
 
     case 'ingresar':
-        $datos['nombre'] = $_POST['usuario'];
-        $datos['apellido'] = $_POST['codigo'];
+        $datos['usuario'] = $_POST['usuario'];
+        $datos['codigo'] = $_POST['codigo'];
         $datos['direccion'] = $_POST['direccion'];
-        $datos['direccion'] = $_POST['email'];
+        $datos['email'] = $_POST['email'];
     
         if ($objregistro->nuevo($datos)) {
             echo "Registro ingresado";
@@ -34,10 +34,10 @@ switch ($_POST['opcion']) {
 
     case 'actualizar':
         $filtro['id'] = $_POST['codigo'];
-        $datos['nombre'] = $_POST['usuario'];
-        $datos['apellido'] = $_POST['codigo'];
+        $datos['usuario'] = $_POST['usuario'];
+        $datos['codigo'] = $_POST['codigo'];
         $datos['direccion'] = $_POST['direccion'];
-        $datos['direccion'] = $_POST['email'];
+        $datos['email'] = $_POST['email'];
         echo $datos = $objregistro->Guardar($datos, $filtro);
         break;
 
@@ -45,4 +45,8 @@ switch ($_POST['opcion']) {
         $filtro['id'] = $_POST['codigo'];
         echo json_encode($datos = $objregistro->ObtenerFiltro($filtro));
         break;
+    case 'eliminar':
+        echo json_encode($datos = $objregistro->Eliminar($_POST['id']));
+        break;
+    
 }

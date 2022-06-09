@@ -55,7 +55,7 @@ if(isset($_SESSION['username']))
 		}
 
 		function cargardatos() {
-			$.post("../../../Controlador/ProovedorController.php", {
+			$.post("../../../Controlador/ProveedorController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
