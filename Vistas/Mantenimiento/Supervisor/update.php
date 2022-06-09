@@ -25,20 +25,20 @@ else
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script type='text/javascript' src="../js/jquery-1.7.1.min.js"> </script>
+	<script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../Controlador/ProductosController.php", {
+				$.post("../../../Controlador/SupervisorController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../Controlador/ProductosController.php",
+				$.post("../../../Controlador/SupervisorController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Perfil_Supervisor.php";
+				window.location.href = "Supervisor_Table.php";
 			});
 		});
 
@@ -50,7 +50,7 @@ else
 		}
 
 		function cargardatos() {
-			$.post("../../Controlador/ProductosController.php", {
+			$.post("../../../Controlador/SupervisorController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
@@ -58,11 +58,10 @@ else
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#nombre").val(arg[0].nombre);
-			$("#descripcion").val(arg[0].descripcion);
-			$("#f_fabricacion").val(arg[0].f_fabricacion);
-			$("#f_caducidad").val(arg[0].f_caducidad);
-			$("#precio").val(arg[0].precio);
+			$("#usuario").val(arg[0].usuario);
+			$("#codigo").val(arg[0].codigo);
+			$("#direccion").val(arg[0].direccion);
+            $("#email").val(arg[0].email);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -74,9 +73,9 @@ else
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
-		<a href="Perfil_Supervisor" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+		<a href="Supervisor_Table" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
-	<h1 class="text-center">Edición de producto</h1>
+	<h1 class="text-center">Edición de supervisor</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
 		
@@ -88,37 +87,30 @@ else
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="usuario" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="descripcion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Descripcion</label>
+            <label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="f_fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_fabricacion</label>
+            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_fabricacion" name="f_fabricacion" placeholder="Fecha de fabricacion">
-            </div>
-        </div>
-        
-        <div class="form-row py-2">
-            <label for="f_caducidad" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_caducidad</label>
-            <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_caducidad" name="f_caducidad" placeholder="Fecha de caduciodad">
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="precio" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
-            <div class="col-sm-2">
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="precio">
+            <label for="email" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Email</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="email" name="email" placeholder="email">
             </div>
         </div>
 

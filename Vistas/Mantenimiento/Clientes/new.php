@@ -20,7 +20,7 @@ else
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Nueva Recarga</title>
+    <title>Nuevo Cliente</title>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -31,13 +31,13 @@ else
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script type='text/javascript' src="../js/jquery-1.7.1.min.js"> </script>
+        <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
     <script type='text/javascript'>
         $(function () {
             $("#guardar").click(function () {
-                $.post("../../Controlador/ProductosController.php",
+                $.post("../../../Controlador/ClientesController.php",
                     $("#datos").serialize(), respuesta);
-                window.location.href = "Perfil_Supervisor.php";
+                window.location.href = "Clientes_Table.php";
             });
         });
 
@@ -53,7 +53,7 @@ else
     background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
     <div class="d-grid gap-2 col-6 mx-auto py-3">
-        <a href="../Mantenimiento/Perfil_Supervisor.php" class="btn btn-warning " tabindex="-1" role="button"
+        <a href="../Mantenimiento/Clientes/Clientes_Table.php" class="btn btn-warning " tabindex="-1" role="button"
             aria-disabled="true">Regresar</a>
     </div>
 
@@ -69,33 +69,18 @@ else
         </div>
 
         <div class="form-row py-2">
-            <label for="descripcion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Descripcion</label>
+            <label for="apellido" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Apellido</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="apellido">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="f_fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_fabricacion</label>
+            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">direccion</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_fabricacion" name="f_fabricacion" placeholder="Fecha de fabricacion">
+                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
             </div>
         </div>
-        
-        <div class="form-row py-2">
-            <label for="f_caducidad" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_caducidad</label>
-            <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_caducidad" name="f_caducidad" placeholder="Fecha de caduciodad">
-            </div>
-        </div>
-
-        <div class="form-row py-2">
-            <label for="precio" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
-            <div class="col-sm-2">
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="precio">
-            </div>
-        </div>
-
 
         <div class="d-grid gap-2 col-6 mx-auto py-3">
             <button type="button" class="w-75  btn btn-warning btn-lg " id="guardar">Guardar</button>

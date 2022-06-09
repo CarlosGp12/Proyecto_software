@@ -23,23 +23,6 @@ else
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
-    <script type='text/javascript'>
-        function cargarcontrolador() {
-
-            $.post("../../../Controlador/PlanesController.php", {
-                'opcion': 'consultar'
-            }, respuesta);
-        }
-
-        function respuesta(arg) {
-            $("#datos tbody").append(arg);
-        }
-
-        function editar(codigo) {
-            document.location.href = "../Planes/updatePlanes.php?id_plan=" + codigo;
-        }
-        window.onload = cargarcontrolador;
-    </script>
 </head>
 
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg" class="cuerpo">
@@ -61,49 +44,41 @@ else
                 </a>
             </li>
             <li>
-                <a href="PerfilAdmin.php" class="nav-link text-white">
+                <a href="Articulo/Perfil_Supervisor" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
-                    Planes
+                    Articulo
                 </a>
             </li>
             <li>
-                <a href="PerfilAdminRe.php" class="nav-link text-white">
+                <a href="Clientes/Clientes_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
+                        <use xlink:href="#speedometer2"></use>
                     </svg>
-                    Recargas
+                    Clientes
                 </a>
             </li>
             <li>
-                <a href="PerfilUsuarios.php" class="nav-link text-white">
+                <a href="Proovedor/Clientes_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
-                    Usuarios
-                </a>
-                <a href="PerfilAdminTb.php" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
-                    Admin
+                    Proovedor
                 </a>
             </li>
             <li>
-                <a href="PerfilPagosPlan.php" class="nav-link text-white">
+                <a href="Supervisor/Supervisor.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
-                    Pagos Planes
+                    Supervisor
                 </a>
-            </li>
-            <li>
-                <a href="PerfilPagosRecarga.php" class="nav-link text-white">
+                <a href="Vendedor/PerfilAdminTb.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
-                    Pagos Recargas
+                    Vendedor
                 </a>
             </li>
         </ul>
@@ -124,33 +99,6 @@ else
     <div class="edi">
         <main class="menu">
             <div class="container py-4">
-
-
-                
-                    <div>
-                        <div class="container-fluid py-5 pb-5 m-5">
-                            <h1 class="display-5 fw-bold">Bienvenido al sistema de administracion</h1>
-                            <p class="col-md-8 fs-4">Antes de salir del sitio web por favor verificar si todos los datos modificados fueron editados y guardados con exito.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="row align-items-md-stretch ">
-                        <div class="col-md-6">
-                            <div class="mt-2 h-100 p-5 text-white bg-dark rounded-3">
-                                <h2>Interfaz de planes</h2>
-                                <p class="mb-5">Se le enviara a la interfaz de planes para ver los planes creados (y) (o) modificados</p>
-                                <a href="../Planes/Planes-Con-Login-Admin.php"><button class="btn btn-outline-light mt-5" type="button">Dirigir a Planes</button></a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" mt-2 h-100 p-5 bg-light border rounded-3">
-                                <h2>Interfaz de recargas</h2>
-                                <p class="mb-5">Se le enviara a la interfaz de recargas para ver las recargas creadas (y) (o) modificadas.</p>
-                                <a href="../Recarga/Recarga-Admin.php"><button class="btn btn-outline-secondary mt-5" type="button">Dirigir a Recargas</button></a>
-                            </div>
-                        </div>
-                    </div>
 
                     <footer class=" pt-3 mt-4 text-muted border-top">
                         © 2021

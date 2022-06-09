@@ -22,11 +22,11 @@ else
   <link rel="stylesheet" href="../css/style.css">
 
   <title>Perfil</title>
-  <script type='text/javascript' src="../js/jquery-1.7.1.min.js"> </script>
+  <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
   <script type='text/javascript'>
     function cargarcontrolador() {
 
-      $.post("../../Controlador/ProductosController.php", {
+      $.post("../../../Controlador/SupervisorController.php", {
         'opcion': 'consultar'
       }, respuesta);
     }
@@ -52,7 +52,7 @@ else
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="../index_t.php" class="nav-link text-white" aria-current="page">
+          <a href="../Opciones.php" class="nav-link text-white" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             <i class="bi bi-house"></i>
@@ -63,18 +63,17 @@ else
     </div>
 
     <div class="edi">
-      <h1 class="text-center">Productos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
+      <h1 class="text-center">Supervisores</h1>
+      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Supervisor</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">f_fabricacion</th>
-            <th scope="col">f_caducidad</th>
-            <th scope="col">precio</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Email</th>
           </tr>
         </thead>
         <tbody>
