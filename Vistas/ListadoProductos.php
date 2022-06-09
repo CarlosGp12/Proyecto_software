@@ -3,7 +3,7 @@
   require'../Modelo/database.php';
   $db = new DataBase();
   $con = $db->conectar();
-  $sql = $con->prepare("SELECT id, nombre, descripcion, precio FROM producto");
+  $sql = $con->prepare("SELECT id, nombre, descripcion, precio FROM productos");
   $sql->execute();
   $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 
