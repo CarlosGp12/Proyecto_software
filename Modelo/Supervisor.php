@@ -21,6 +21,13 @@ class Proovedor
 		return $Admin;
 	}
 
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$Admin=$conexion->eliminar('supervisor',$filtro);
+		return $Admin;
+	}
+
 	public function ObtenerFiltro($filtro)
 	{
 		$conexion = new Conexion;
