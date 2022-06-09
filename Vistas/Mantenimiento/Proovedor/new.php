@@ -31,11 +31,11 @@ else
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
+    <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
     <script type='text/javascript'>
         $(function () {
             $("#guardar").click(function () {
-                $.post("../../../Controlador/ProovedorController.php",
+                $.post("../../../Controlador/ProveedorController.php",
                     $("#datos").serialize(), respuesta);
                 window.location.href = "Proovedor_Table.php";
             });
@@ -64,7 +64,7 @@ else
         <div class="form-row py-2">
             <label for="cedula" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Cedula</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="cedula" name="cedula" placeholder="cedula">
+                <input type="int" class="form-control" id="cedula" name="cedula" placeholder="cedula">
             </div>
         </div>
 

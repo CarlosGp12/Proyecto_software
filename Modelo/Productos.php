@@ -27,4 +27,12 @@ class Productos
 		$Admin = $conexion->consultarFiltro('productos', $filtro);
 		return $Admin;
 	}
+	
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$Admin=$conexion->eliminar('productos',$filtro);
+		return $Admin;
+	}
+
 }

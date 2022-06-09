@@ -44,7 +44,7 @@ else
                 </a>
             </li>
             <li>
-                <a href="Articulo/Perfil_Supervisor" class="nav-link text-white">
+                <a href="Articulo/Perfil_Supervisor.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -60,7 +60,7 @@ else
                 </a>
             </li>
             <li>
-                <a href="Proovedor/Clientes_Table.php" class="nav-link text-white">
+                <a href="Proovedor/Proovedor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>

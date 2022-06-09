@@ -29,14 +29,14 @@ else
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../../Controlador/ProovedorController.php", {
+				$.post("../../../Controlador/ProveedorController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../../Controlador/ProovedorController.php",
+				$.post("../../../Controlador/ProveedorController.php",
 					$("#datos").serialize(), respuesta2);
 				window.location.href = "Proovedor_Table.php";
 			});
@@ -58,9 +58,9 @@ else
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#cedula").val(arg[0].nombre);
-			$("#nombre").val(arg[0].descripcion);
-			$("#direccion").val(arg[0].f_fabricacion);
+			$("#cedula").val(arg[0].cedula);
+			$("#nombre").val(arg[0].nombre);
+			$("#direccion").val(arg[0].direccion);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -86,9 +86,9 @@ else
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="cedula" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Cedula</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="int" class="form-control" id="cedula" name="cedula" placeholder="cedula">
             </div>
         </div>
 

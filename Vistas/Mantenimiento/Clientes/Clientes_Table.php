@@ -35,6 +35,14 @@ else
       $("#datos tbody").append(arg);
     }
 
+    function eliminar(codigo)
+    {
+      $.post("../../../Controlador/ClientesController.php",
+        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
+
+      window.location.href = "Clientes_Table.php";
+    }
+
     function editar(codigo) {
       document.location.href = "update.php?id=" + codigo;
     }

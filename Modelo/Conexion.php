@@ -128,4 +128,18 @@ class Conexion
             return "Error al actualizar... " . $this->error;
         }
     }
+    public function eliminar($tabla,$datos)
+	{	
+		try {
+			$this->conectar();
+			$sql = "delete from $tabla where id = $datos";
+			$stmt = $this->dbconn->prepare($sql);
+			// execute the insert statement
+			$stmt->execute();
+			return "Registro Eliminado...";
+		} catch (Exception $e) {
+			$this->error= $e->getMessage();
+			return "Error al eliminar... ".$this->error;
+		}
+	}
 }

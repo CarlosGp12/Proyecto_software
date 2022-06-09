@@ -27,4 +27,11 @@ class Clientes
 		$Admin = $conexion->consultarFiltro('clientes', $filtro);
 		return $Admin;
 	}
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$Admin=$conexion->eliminar('clientes',$filtro);
+		return $Admin;
+	}
+
 }

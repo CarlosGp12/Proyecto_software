@@ -18,7 +18,8 @@ else
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
 
   <title>Perfil</title>
@@ -26,13 +27,20 @@ else
   <script type='text/javascript'>
     function cargarcontrolador() {
 
-      $.post("../../../Controlador/ProovedoController.php", {
+      $.post("../../../Controlador/ProveedorController.php", {
         'opcion': 'consultar'
       }, respuesta);
     }
 
     function respuesta(arg) {
       $("#datos tbody").append(arg);
+    }
+
+    function eliminar(codigo) {
+      $.post("../../../Controlador/ProveedorController.php",
+        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
+
+      window.location.href = "Proovedor_Table.php";
     }
 
     function editar(codigo) {
@@ -42,7 +50,9 @@ else
   </script>
 </head>
 
-<body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg" class="cuerpo">
+<body
+  background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg"
+  class="cuerpo">
 
   <div class="d-flex">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 970px;">
@@ -80,7 +90,9 @@ else
       </table>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

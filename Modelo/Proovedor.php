@@ -27,4 +27,12 @@ class Proovedor
 		$Admin = $conexion->consultarFiltro('proovedor', $filtro);
 		return $Admin;
 	}
+	
+	public function Eliminar($filtro)
+	{
+		$conexion=new Conexion;
+		$Admin=$conexion->eliminar('proovedor',$filtro);
+		return $Admin;
+	}
+
 }
