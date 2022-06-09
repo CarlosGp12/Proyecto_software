@@ -18,17 +18,17 @@
             <p style="color: white"> <?php echo $_GET['error']; ?></p>
             <?php } ?>
             <div class="datos">
-            <?php if (isset($_GET['usuario'])) { ?>
+            <?php if (isset($_GET['username'])) { ?>
                     <input type="text" 
-                           name="usuario" 
+                           name="username" 
                            class="texto" 
                            placeholder="Usuario" 
                            autofocus 
-                           value="<?php echo $_GET['usuario']; 
+                           value="<?php echo $_GET['username']; 
                            ?>">
                 <?php }else{  ?>
                     <input type="text" 
-                           name="usuario" 
+                           name="username" 
                            class="texto" 
                            placeholder="Usuario"
                            autofocus>

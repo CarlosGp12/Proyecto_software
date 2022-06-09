@@ -1,29 +1,69 @@
 <?php
-require_once ('database.php');
-    $db=new Database();
-    $con=$db->conectar();
+    include_once 'database.php';
     session_start();
 
-if (isset($_POST['Login'])) {
 
-    $user_data='usuario='.$_POST['usuario'].'&password='.$_POST['password'];
+    if(isset($_SESSION['rol'])){
+        switch($_SESSION['rol']){
+            case 1:
+                header('location: ../Vistas/index_t.php');
+            break;
+
+            case 2:
+            header('location: ../Vistas/Mantenimiento/Supervisor/Supervisor_Table.php');
+            break;
+
+            case 3:
+                header('location: ../Vistas/Mantenimiento/Clientes/Clientes_Table.php');
+                break;
+
+            default:
+        }
+    }
+
+if(isset($_POST['username']) && isset($_POST['password'])) {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
-    if(empty($_POST['usuario'])){
-        header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=El usuario es requerido&$user_data");
+    if(empty($_POST['username'])){
+        header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=El usuario es requerido");
         exit();
     }else if (empty ($_POST['password'])){
         header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=La contrasena es requerido");
         exit();
     }else{
-        $sql = "SELECT * FROM supervisor WHERE user= '".$_POST['usuario']."' AND password='".$_POST['password']."'";
-        $result = $con->query($sql);
+
+
+        $db = new Database();
+        $query = $db->conectar()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
+        $query->execute(['username' => $username, 'password' => $password]);
+        $_SESSION['username']= $username;
+        $row = $query->fetch(PDO::FETCH_NUM);
+
         
-        if($result->fetch()){
+        
+        if($row == true){
                 
-                $_SESSION['User']=$_POST['usuario'];
-            
-                 header("Location: http://localhost/Proyecto_software/Vistas/index_t.php");
-                exit();
+                // validar rol
+            $rol = $row[4];
+            $_SESSION['rol'] = $rol;
+
+            switch($_SESSION['rol']){
+                case 1:
+                    header('location: ../Vistas/index_t.php');
+                break;
+    
+                case 2:
+                header('location: ../Vistas/Mantenimiento/Supervisor/Supervisor_Table.php');
+                break;
+    
+                case 3:
+                    header('location: ../Vistas/index.html');
+                    break;
+    
+                default:
+            }
             
             }else{
                header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=Usuario o Contraseña Incorrecta");

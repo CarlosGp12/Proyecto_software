@@ -1,14 +1,18 @@
 <?php
+
+
 session_start();
-
-if(isset($_SESSION['User']))
+if(isset($_SESSION['username']))
 {
 }
-else
-{
-    header("location:http://localhost/Proyecto_software/Vistas/login.php");
-}
 
+    if(!isset($_SESSION['rol'])){
+        header('location: login.php');
+    }else{
+        if($_SESSION['rol'] != 1){
+            header('location: login.php');
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +88,7 @@ else
                     <div class="me-auto p-2 align-self-center">
                         <h2> Bienvenido  
                             <i> 
-                                <?php echo $_SESSION['User'] ?> 
+                                <?php echo $_SESSION['username'] ?> 
                             </i>
                         </h2>
                     </div>
