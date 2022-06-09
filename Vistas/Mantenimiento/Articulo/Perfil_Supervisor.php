@@ -78,7 +78,7 @@ if(isset($_SESSION['username']))
 
     <div class="edi">
       <h1 class="text-center">Productos</h1>
-
+      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
