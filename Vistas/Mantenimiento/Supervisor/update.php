@@ -59,7 +59,7 @@ else
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
 			$("#usuario").val(arg[0].usuario);
-			$("#codigo").val(arg[0].codigo);
+			$("#codigo1").val(arg[0].codigo1);
 			$("#direccion").val(arg[0].direccion);
             $("#email").val(arg[0].email);
 		}
@@ -96,7 +96,7 @@ else
         <div class="form-row py-2">
             <label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo">
+                <input type="text" class="form-control" id="codigo1" name="codigo1" placeholder="codigo">
             </div>
         </div>
 

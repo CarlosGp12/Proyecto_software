@@ -10,7 +10,7 @@ switch ($_POST['opcion']) {
             $tabla .= "<tr>";
             $tabla .= "<th scope='row'>" . $fila['id'] . "</th>";
             $tabla .= "<td>" . $fila['usuario'] . "</td>";
-            $tabla .= "<td>" . $fila['codigo'] . "</td>";
+            $tabla .= "<td>" . $fila['codigo1'] . "</td>";
             $tabla .= "<td>" . $fila['direccion'] . "</td>";
             $tabla .= "<td>" . $fila['email'] . "</td>";
             $tabla .= "<td><button type='button' class='btn btn-outline-dark' onclick='editar(" . $fila['id'] . ")'>Editar</button></td>";
@@ -21,7 +21,7 @@ switch ($_POST['opcion']) {
 
     case 'ingresar':
         $datos['usuario'] = $_POST['usuario'];
-        $datos['codigo'] = $_POST['codigo'];
+        $datos['codigo1'] = $_POST['codigo1'];
         $datos['direccion'] = $_POST['direccion'];
         $datos['email'] = $_POST['email'];
     
@@ -35,7 +35,7 @@ switch ($_POST['opcion']) {
     case 'actualizar':
         $filtro['id'] = $_POST['codigo'];
         $datos['usuario'] = $_POST['usuario'];
-        $datos['codigo'] = $_POST['codigo'];
+        $datos['codigo1'] = $_POST['codigo1'];
         $datos['direccion'] = $_POST['direccion'];
         $datos['email'] = $_POST['email'];
         echo $datos = $objregistro->Guardar($datos, $filtro);

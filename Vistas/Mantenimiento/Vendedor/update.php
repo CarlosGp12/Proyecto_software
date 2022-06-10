@@ -41,7 +41,7 @@ if(isset($_SESSION['username']))
 			$("#guardar").click(function() {
 				$.post("../../../Controlador/VendedorController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Supervisor_Table.php";
+				window.location.href = "Vendedor_Table.php";
 			});
 		});
 
@@ -62,7 +62,7 @@ if(isset($_SESSION['username']))
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
 			$("#usuario").val(arg[0].usuario);
-			$("#codigo").val(arg[0].codigo);
+			$("#codigo1").val(arg[0].codigo);
 			$("#direccion").val(arg[0].direccion);
             $("#email").val(arg[0].email);
 		}
@@ -99,7 +99,7 @@ if(isset($_SESSION['username']))
         <div class="form-row py-2">
             <label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo">
+                <input type="text" class="form-control" id="codigo1" name="codigo1" placeholder="codigo">
             </div>
         </div>
 
