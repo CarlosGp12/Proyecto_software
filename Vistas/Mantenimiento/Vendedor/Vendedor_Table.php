@@ -38,6 +38,13 @@ if(isset($_SESSION['username']))
       $("#datos tbody").append(arg);
     }
 
+    function eliminar(codigo) {
+      $.post("../../../Controlador/VendedorController.php",
+        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
+
+      window.location.href = "Vendedor_Table.php";
+    }
+
     function editar(codigo) {
       document.location.href = "update.php?id=" + codigo;
     }

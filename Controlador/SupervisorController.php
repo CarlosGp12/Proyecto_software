@@ -26,7 +26,7 @@ switch ($_POST['opcion']) {
 
     case 'ingresar':
         $datos['usuario'] = $_POST['usuario'];
-        $datos['codigo'] = $_POST['codigo1'];
+        $datos['codigo1'] = $_POST['codigo1'];
         $datos['direccion'] = $_POST['direccion'];
         $datos['email'] = $_POST['email'];
     
