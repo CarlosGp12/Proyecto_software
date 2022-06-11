@@ -1,18 +1,16 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) 
+if(isset($_SESSION['username']))
 {
 }
 
-if (!isset($_SESSION['rol'])) {
-  header('location: ../../login.php');
-}
-else {
-  if ($_SESSION['rol'] != 2) {
-    header('location: ../../login.php');
-  }   
-  
-}
+    if(!isset($_SESSION['rol'])){
+        header('location: ../../login.php');
+    }else{
+        if($_SESSION['rol'] != 1){
+            header('location: ../../login.php');
+        }
+    }
 
 ?>
 
@@ -68,7 +66,7 @@ else {
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="../Opciones2.php" class="nav-link text-white" aria-current="page">
+          <a href="../Opciones.php" class="nav-link text-white" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             <i class="bi bi-house"></i>

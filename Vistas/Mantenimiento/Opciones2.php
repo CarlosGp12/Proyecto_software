@@ -7,7 +7,7 @@ if(isset($_SESSION['username']))
     if(!isset($_SESSION['rol'])){
         header('location: ../login.php');
     }else{
-        if($_SESSION['rol'] != 1){
+        if($_SESSION['rol'] != 2){
             header('location: ../login.php');
         }
     }
@@ -46,7 +46,7 @@ if(isset($_SESSION['username']))
                 </a>
             </li>
             <li>
-                <a href="Articulo/Supervisor_Table_Admin.php" class="nav-link text-white">
+                <a href="Articulo/Perfil_Supervisor.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -54,7 +54,7 @@ if(isset($_SESSION['username']))
                 </a>
             </li>
             <li>
-                <a href="Clientes/Clientes_Table_Admin.php" class="nav-link text-white">
+                <a href="Clientes/Clientes_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
@@ -62,7 +62,7 @@ if(isset($_SESSION['username']))
                 </a>
             </li>
             <li>
-                <a href="Proovedor/Proovedor_Table_Admin.php" class="nav-link text-white">
+                <a href="Proovedor/Proovedor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
@@ -70,23 +70,24 @@ if(isset($_SESSION['username']))
                 </a>
             </li>
             <li>
-                <a href="Supervisor/Supervisor_Table.php" class="nav-link text-white">
+                <!-- <a href="Supervisor/Supervisor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
                     Supervisor
-                </a>
+                </a> 
                 <a href="Vendedor/Vendedor_Table.php" class="nav-link text-white">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
                     Vendedor
-                </a>
+                </a>-->
             </li>
             <i> 
                 Usted a iniciado como: <?php echo $_SESSION['username'] ?> 
             </i>
         </ul>
+        
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

@@ -78,7 +78,7 @@ if(isset($_SESSION['username']))
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
 		<a href="Clientes_Table.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
-	<h1 class="text-center">Edición de producto</h1>
+	<h1 class="text-center">Edición de Cliente</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
 		

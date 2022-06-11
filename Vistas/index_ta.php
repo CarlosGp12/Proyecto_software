@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if(isset($_SESSION['User']))
+{
+}
+else
+{
+    header("location:http://localhost/Proyecto_software/Vistas/login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,20 +82,19 @@
             <div class="px-3 py-2 border-bottom mb-3">
                 <div class="container d-flex flex-wrap justify-content-end">
                     <div class="text-end">
-                       <a href="login.php"> <button type="button" class="btn btn-light text-dark me-2">Login</button></a>
-                        <button type="button" class="btn btn-primary">Sign-up</button>
+                        <button type="button" class="btn btn-light text-dark me-2">Bienvenido </button>
+                        <a href="../Modelo/logout.php?logout"><button type="button" class="btn btn-primary">Log-out</button></a>
                     </div>
                 </div>
             </div>
         </header>
-        <!--productos desde base-->
         <main class="contenedor sombra">
-            
-                <iframe src="ListadoProductos.php" width="100%" height="400px"></iframe>
-            
-        </main>
-            </div>
-        </main>-->
+            <h1> Bienvenido  
+                <i> 
+                    <?php echo $_SESSION['User'] ?> 
+                </i>
+            </h1>
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 

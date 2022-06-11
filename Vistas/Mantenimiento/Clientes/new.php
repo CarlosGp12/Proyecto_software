@@ -62,7 +62,7 @@ if(isset($_SESSION['username']))
             aria-disabled="true">Regresar</a>
     </div>
 
-    <h1 class="text-center">Ingresar nuevo producto</h1>
+    <h1 class="text-center">Ingresar nuevo Cliente</h1>
     <form id="datos">
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 

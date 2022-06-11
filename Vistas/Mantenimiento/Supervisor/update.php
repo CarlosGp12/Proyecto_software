@@ -1,14 +1,17 @@
 <?php
+
 session_start();
-
-if (isset($_SESSION['User'])) 
+if(isset($_SESSION['username']))
 {
 }
-else 
-{
-	header("location:http://localhost/Proyecto_software/Vistas/login.php");
-}
 
+    if(!isset($_SESSION['rol'])){
+        header('location: ../../login.php');
+    }else{
+        if($_SESSION['rol'] != 1){
+            header('location: ../../login.php');
+        }
+    }
 ?>
 
 <!doctype html>

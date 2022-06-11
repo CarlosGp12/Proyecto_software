@@ -10,11 +10,11 @@
             break;
 
             case 2:
-            header('location: ../Vistas/Mantenimiento/Supervisor/Supervisor_Table.php');
+            header('location: ../Vistas/Mantenimiento/Opciones2.php');
             break;
 
             case 3:
-                header('location: ../Vistas/Mantenimiento/Clientes/Clientes_Table.php');
+                header('location: ../Vistas/index.html');
                 break;
 
             default:
@@ -55,7 +55,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
                 break;
     
                 case 2:
-                header('location: ../Vistas/Mantenimiento/Supervisor/Supervisor_Table.php');
+                header('location: ../Vistas/Mantenimiento/Opciones2.php');
                 break;
     
                 case 3:

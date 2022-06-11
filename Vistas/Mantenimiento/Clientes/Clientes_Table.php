@@ -64,7 +64,7 @@ if(isset($_SESSION['username']))
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="../Opciones.php" class="nav-link text-white" aria-current="page">
+          <a href="../Opciones2.php" class="nav-link text-white" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             <i class="bi bi-house"></i>

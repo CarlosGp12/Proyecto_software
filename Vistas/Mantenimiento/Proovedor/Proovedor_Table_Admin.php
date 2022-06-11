@@ -1,19 +1,17 @@
 <?php
+
 session_start();
-if (isset($_SESSION['username'])) 
+if(isset($_SESSION['username']))
 {
 }
 
-if (!isset($_SESSION['rol'])) {
-  header('location: ../../login.php');
-}
-else {
-  if ($_SESSION['rol'] != 2) {
-    header('location: ../../login.php');
-  }   
-  
-}
-
+    if(!isset($_SESSION['rol'])){
+        header('location: ../../login.php');
+    }else{
+        if($_SESSION['rol'] != 1){
+            header('location: ../../login.php');
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +30,7 @@ else {
   <script type='text/javascript'>
     function cargarcontrolador() {
 
-      $.post("../../../Controlador/ProductosController.php", {
+      $.post("../../../Controlador/ProveedorController.php", {
         'opcion': 'consultar'
       }, respuesta);
     }
@@ -41,12 +39,11 @@ else {
       $("#datos tbody").append(arg);
     }
 
-    function eliminar(codigo)
-    {
-      $.post("../../../Controlador/ProductosController.php",
+    function eliminar(codigo) {
+      $.post("../../../Controlador/ProveedorController.php",
         { 'opcion': 'eliminar', 'id': codigo }, respuesta);
 
-      window.location.href = "Perfil_Supervisor.php";
+      window.location.href = "Proovedor_Table.php";
     }
 
     function editar(codigo) {
@@ -68,7 +65,7 @@ else {
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="../Opciones2.php" class="nav-link text-white" aria-current="page">
+          <a href="../Opciones.php" class="nav-link text-white" aria-current="page">
             <svg class="bi me-2" width="16" height="16">
             </svg>
             <i class="bi bi-house"></i>
@@ -79,18 +76,16 @@ else {
     </div>
 
     <div class="edi">
-      <h1 class="text-center">Productos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
+      <h1 class="text-center">Proovedores</h1>
+      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Proovedor</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">f_fabricacion</th>
-            <th scope="col">f_caducidad</th>
-            <th scope="col">precio</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
           </tr>
         </thead>
         <tbody>
