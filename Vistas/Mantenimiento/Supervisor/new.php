@@ -53,7 +53,7 @@ else
     background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
     <div class="d-grid gap-2 col-6 mx-auto py-3">
-        <a href="../Mantenimiento/Supervisor/Supervisor_Table.php" class="btn btn-warning " tabindex="-1" role="button"
+        <a href="Supervisor_Table.php" class="btn btn-warning " tabindex="-1" role="button"
             aria-disabled="true">Regresar</a>
     </div>
 

@@ -34,7 +34,7 @@ if(isset($_SESSION['username']))
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 970px;">
         <a href="../Index-Login-Admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <img src="../../imagenes/1.png" width="50" height="50" alt="">
-            <span class="fs-4">Pillo-Phone</span>
+            <span class="fs-4">Farmacia</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
