@@ -62,7 +62,7 @@ if(isset($_SESSION['username']))
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
 			$("#usuario").val(arg[0].usuario);
-			$("#codigo1").val(arg[0].codigo);
+			$("#codigo1").val(arg[0].codigo1);
 			$("#direccion").val(arg[0].direccion);
             $("#email").val(arg[0].email);
 		}
