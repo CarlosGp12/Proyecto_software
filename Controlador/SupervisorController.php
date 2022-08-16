@@ -8,17 +8,17 @@ switch ($_POST['opcion']) {
 
         foreach ($datos as $fila) {
             $tabla .= "<tr>";
-            $tabla .= "<th scope='row'>" . $fila['id'] . "</th>";
-            $tabla .= "<td>" . $fila['usuario'] . "</td>";
-            $tabla .= "<td>" . $fila['codigo1'] . "</td>";
-            $tabla .= "<td>" . $fila['direccion'] . "</td>";
-            $tabla .= "<td>" . $fila['email'] . "</td>";
-            $tabla .= "<td> <button type='button' class='btn btn-warning' onclick='editar(" . $fila['id'] . ")'</button>
-            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='Black' class='bi bi-pencil' viewBox='0 0 16 16' onclick='editar(" . $fila['id'] . ")'>Editar>
+            $tabla .= "<th scope='row'>" . $fila['ID_Supervisor'] . "</th>";
+            $tabla .= "<td>" . $fila['nombre_Usuario'] . "</td>";
+            $tabla .= "<td>" . $fila['correo'] . "</td>";
+            $tabla .= "<td>" . $fila['password'] . "</td>";
+            $tabla .= "<td>" . $fila['direccion_Supervisor'] . "</td>";
+            $tabla .= "<td> <button type='button' class='btn btn-warning' onclick='editar(" . $fila['ID_Supervisor'] . ")'</button>
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='Black' class='bi bi-pencil' viewBox='0 0 16 16' onclick='editar(" . $fila['ID_Supervisor'] . ")'>Editar>
             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/>
             </svg></td>";
-            $tabla .= "<td> <button type='button' class='btn btn-danger' onclick='eliminar(" . $fila['id'] . ")' </button>
-            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='Black' class='bi bi-pencil' viewBox='0 0 16 16' onclick='eliminar(" . $fila['id'] . ")'>Eliminar>
+            $tabla .= "<td> <button type='button' class='btn btn-danger' onclick='eliminar(" . $fila['ID_Supervisor'] . ")' </button>
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='Black' class='bi bi-pencil' viewBox='0 0 16 16' onclick='eliminar(" . $fila['ID_Supervisor'] . ")'>Eliminar>
             <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
             <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
             </svg></td>";
@@ -28,10 +28,10 @@ switch ($_POST['opcion']) {
         break;
 
     case 'ingresar':
-        $datos['usuario'] = $_POST['usuario'];
-        $datos['codigo1'] = $_POST['codigo1'];
-        $datos['direccion'] = $_POST['direccion'];
-        $datos['email'] = $_POST['email'];
+        $datos['nombre_Usuario'] = $_POST['nombre_Usuario'];
+        $datos['correo'] = $_POST['correo'];
+        $datos['password'] = $_POST['password'];
+        $datos['direccion_Supervisor'] = $_POST['direccion_Supervisor'];
     
         if ($objregistro->nuevo($datos)) {
             echo "Registro ingresado";
@@ -41,19 +41,19 @@ switch ($_POST['opcion']) {
         break;
 
     case 'actualizar':
-        $filtro['id'] = $_POST['codigo'];
-        $datos['usuario'] = $_POST['usuario'];
-        $datos['codigo1'] = $_POST['codigo1'];
-        $datos['direccion'] = $_POST['direccion'];
-        $datos['email'] = $_POST['email'];
+        $filtro['ID_Supervisor'] = $_POST['codigo'];
+        $datos['nombre_Usuario'] = $_POST['nombre_Usuario'];
+        $datos['correo'] = $_POST['correo'];
+        $datos['password'] = $_POST['password'];
+        $datos['direccion_Supervisor'] = $_POST['direccion_Supervisor'];
         echo $datos = $objregistro->Guardar($datos, $filtro);
         break;
 
     case 'consultaxcodigo':
-        $filtro['id'] = $_POST['codigo'];
+        $filtro['ID_Supervisor'] = $_POST['codigo'];
         echo json_encode($datos = $objregistro->ObtenerFiltro($filtro));
         break;
     case 'eliminar':
-        echo json_encode($datos = $objregistro->Eliminar($_POST['id']));
+        echo json_encode($datos = $objregistro->Eliminar($_POST['ID_Supervisor']));
         break;
 }

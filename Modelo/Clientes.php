@@ -5,32 +5,32 @@ class Clientes
 	public function ObtenerTodos()
 	{
 		$conexion = new Conexion;
-		$Admin = $conexion->consultar('clientes');
+		$Admin = $conexion->consultar('cliente');
 		return $Admin;
 	}
 	public function nuevo($datos)
 	{
 		$conexion = new Conexion;
-		$Admin = $conexion->insertar('clientes', $datos);
+		$Admin = $conexion->insertar('cliente', $datos);
 		return $Admin;
 	}
 	public function Guardar($datos, $filtro)
 	{
 		$conexion = new Conexion;
-		$Admin = $conexion->actualizar('clientes', $datos, $filtro);
+		$Admin = $conexion->actualizar('cliente', $datos, $filtro);
 		return $Admin;
 	}
 
 	public function ObtenerFiltro($filtro)
 	{
 		$conexion = new Conexion;
-		$Admin = $conexion->consultarFiltro('clientes', $filtro);
+		$Admin = $conexion->consultarFiltro('cliente', $filtro);
 		return $Admin;
 	}
 	public function Eliminar($filtro)
 	{
 		$conexion=new Conexion;
-		$Admin=$conexion->eliminar('clientes',$filtro);
+		$Admin=$conexion->eliminar('cliente',$filtro);
 		return $Admin;
 	}
 

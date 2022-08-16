@@ -3,7 +3,7 @@
   require'../Modelo/database.php';
   $db = new DataBase();
   $con = $db->conectar();
-  $sql = $con->prepare("SELECT id, nombre, descripcion, precio FROM productos");
+  $sql = $con->prepare("SELECT id, nombre_Produto, stock, precio_Venta FROM producto");
   $sql->execute();
   $resultado = $sql->fetchALL(PDO::FETCH_ASSOC);
 
@@ -33,8 +33,8 @@
               <p align="center"><img class="imagenP" src="../img/paracetamol.png" width="200" height="200"></p>
             </span>
             <div class="card-body">
-              <h5 class="card-title"><?php echo $row['nombre']?></h5>
-              <p class="card-text">$<?php echo $row['precio']?></p>
+              <h5 class="card-title"><?php echo $row['nombre_Produto']?></h5>
+              <p class="card-text">$<?php echo $row['precio_Venta']?></p>
               <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
           </div>

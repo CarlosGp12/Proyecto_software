@@ -9,11 +9,11 @@ switch ($_POST['opcion']) {
         foreach ($datos as $fila) {
             $tabla .= "<tr>";
             $tabla .= "<th scope='row'>" . $fila['id'] . "</th>";
-            $tabla .= "<td>" . $fila['nombre'] . "</td>";
-            $tabla .= "<td>" . $fila['descripcion'] . "</td>";
-            $tabla .= "<td>" . $fila['f_fabricacion'] . "</td>";
-            $tabla .= "<td>" . $fila['f_caducidad'] . "</td>";
-            $tabla .= "<td>" . $fila['precio'] . "</td>";
+            $tabla .= "<td>" . $fila['nombre_Produto'] . "</td>";
+            $tabla .= "<td>" . $fila['stock'] . "</td>";
+            $tabla .= "<td>" . $fila['fecha_Fabricacion'] . "</td>";
+            $tabla .= "<td>" . $fila['fecha_Vencimiento'] . "</td>";
+            $tabla .= "<td>" . $fila['precio_Venta'] . "</td>";
             $tabla .= "<td> <button type='button' class='btn btn-warning' onclick='editar(" . $fila['id'] . ")'</button>
             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='Black' class='bi bi-pencil' viewBox='0 0 16 16' onclick='editar(" . $fila['id'] . ")'>Editar>
             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/>
@@ -29,11 +29,11 @@ switch ($_POST['opcion']) {
         break;
 
     case 'ingresar':
-        $datos['nombre'] = $_POST['nombre'];
-        $datos['descripcion'] = $_POST['descripcion'];
-        $datos['f_fabricacion'] = $_POST['f_fabricacion'];
-        $datos['f_caducidad'] = $_POST['f_caducidad'];
-        $datos['precio'] = $_POST['precio'];
+        $datos['nombre_Produto'] = $_POST['nombre_Produto'];
+        $datos['stock'] = $_POST['stock'];
+        $datos['fecha_Fabricacion'] = $_POST['fecha_Fabricacion'];
+        $datos['fecha_Vencimiento'] = $_POST['fecha_Vencimiento'];
+        $datos['precio_Venta'] = $_POST['precio_Venta'];
 
         if ($objregistro->nuevo($datos)) {
             echo "Registro ingresado";
@@ -44,11 +44,11 @@ switch ($_POST['opcion']) {
 
     case 'actualizar':
         $filtro['id'] = $_POST['codigo'];
-        $datos['nombre'] = $_POST['nombre'];
-        $datos['descripcion'] = $_POST['descripcion'];
-        $datos['f_fabricacion'] = $_POST['f_fabricacion'];
-        $datos['f_caducidad'] = $_POST['f_caducidad'];
-        $datos['precio'] = $_POST['precio'];
+        $datos['nombre_Produto'] = $_POST['nombre_Produto'];
+        $datos['stock'] = $_POST['stock'];
+        $datos['fecha_Fabricacion'] = $_POST['fecha_Fabricacion'];
+        $datos['fecha_Vencimiento'] = $_POST['fecha_Vencimiento'];
+        $datos['precio_Venta'] = $_POST['precio_Venta'];
         echo $datos = $objregistro->Guardar($datos, $filtro);
         break;
 
