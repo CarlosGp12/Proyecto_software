@@ -1,8 +1,6 @@
 <?php
     include_once 'database.php';
     session_start();
-
-
     if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
             case 1:
@@ -21,19 +19,11 @@
         }
     }
 
-if(isset($_POST['username']) && isset($_POST['password'])) {
+    if(isset($_POST['username']) && isset($_POST['password'])) {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
     
-    if(empty($_POST['username'])){
-        header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=El usuario es requerido");
-        exit();
-    }else if (empty ($_POST['password'])){
-        header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=La contrasena es requerido");
-        exit();
-    }else{
-
 
         $db = new Database();
         $query = $db->conectar()->prepare('SELECT *FROM usuario WHERE nombre_Usuario = :username AND password = :password');
@@ -41,11 +31,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['username']= $username;
         $row = $query->fetch(PDO::FETCH_NUM);
 
-        
-        
-        if($row == true){
-                
-                // validar rol
+        if($row == true){  
+             // validar rol
             $rol = $row[4];
             $_SESSION['rol'] = $rol;
 
@@ -64,17 +51,13 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     
                 default:
             }
-            
-            }else{
-               header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=Usuario o Contraseña Incorrecta");
-                exit();
-        }
-        
-        
-    
-        
-   }
-}else{
+ 
+        }else{
+            header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=Usuario o Contraseña Incorrecta");
+             exit();
+        }   
+    }else{
     header("Location:login.php");
     exit();
-}
+    }
+?>

@@ -5,41 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Login 01</title>
-    <link rel="stylesheet" href="./css/style2.css">
+    <title>Farmacia</title>
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 </head>
 
 <body>
-    <form  action="../Modelo/login.php" method="post" class="form-box animated fadeInUp">
-        <h1 class="form-title">Sign-In</h1>
+    <div class="contenedor">
+        <h2>Farmacia</h2>
+
+        <form  action="../Modelo/login.php" method="post" class="form-box animated fadeInUp">
         <?php if (isset($_GET['error'])) { ?>
-            <p style="color: white"> <?php echo $_GET['error']; ?></p>
+            <p style="color: orange"> <?php echo $_GET['error']; ?></p>
             <?php } ?>
+                <div class="datos">
+                <input type="text" required 
+                name="username">
+                <label> Correo </label>
+                </div>
+
             <div class="datos">
-            <?php if (isset($_GET['username'])) { ?>
-                    <input type="text" 
-                           name="username" 
-                           class="texto" 
-                           placeholder="Usuario" 
-                           autofocus 
-                           value="<?php echo $_GET['username']; 
-                           ?>">
-                <?php }else{  ?>
-                    <input type="text" 
-                           name="username" 
-                           class="texto" 
-                           placeholder="Usuario"
-                           autofocus>
-                <?php }?>
+                <input type="password" required
+                name="password">
+                <label> Contraseña </label>
+                
+            </div>
 
-
-        
-                <input type="password" name="password" placeholder="Contraseña" >
-
-        <button  name="Login">Iniciar Sesion</button>
-    </form>
+            <button name="Login">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Iniciar
+                </button>
+        </form>
+    </div>
 </body>
 
 </html>
