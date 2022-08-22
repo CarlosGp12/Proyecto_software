@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require('fpdf/fpdf.php');
 
 class PDF extends FPDF
@@ -56,6 +56,6 @@ $pdf->Cell(30,8,'$','B',0,'C',1);
 $pdf->Cell(35,8,'2','B',0,'C',1);
 $pdf->Cell(50,8,'40','B',0,'C',1);
 }
-
 $pdf->Output();
+ob_end_flush(); 
 ?>
