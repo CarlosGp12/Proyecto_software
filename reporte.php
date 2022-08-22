@@ -1,15 +1,14 @@
 <?php
 
 require('fpdf/fpdf.php');
-date_default_timezone_set('America/Ecuador');
 
 class PDF extends FPDF
 {
 // Cabecera de página
 function Header()
 {
-    $this->SetFont('Times','B',20);
     $this->Image('img/farmacia.png',0,0,70);
+    $this->SetFont('Times','B',20);
     $this->SetXY(80,15);
     $this->Cell(100,8,'INFORME',0,0,'C',0);
     $this->Ln(40);
@@ -24,6 +23,7 @@ function Footer()
     $this->SetFont('Arial','B',10);
 
     $this->Cell(0,10,utf8_decode('Pagina ').$this->PageNo().'/{nb}',0,0,'C');
+    $this->Cell(0,5,utf8_decode("Derechos Reservados."),0,0,"C");
 }
 }
 
@@ -56,8 +56,6 @@ $pdf->Cell(30,8,'$','B',0,'C',1);
 $pdf->Cell(35,8,'2','B',0,'C',1);
 $pdf->Cell(50,8,'40','B',0,'C',1);
 }
-
-$pdf->AddPage();
 
 $pdf->Output();
 ?>
