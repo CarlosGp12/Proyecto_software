@@ -10,7 +10,7 @@ function Header()
     $this->Image('img/farmacia.png',0,0,70);
     $this->SetFont('Times','B',20);
     $this->SetXY(80,15);
-    $this->Cell(100,8,'INFORME',0,0,'C',0);
+    $this->Cell(100,8,'REPORTE',0,0,'C',0);
     $this->Ln(40);
 }
 
