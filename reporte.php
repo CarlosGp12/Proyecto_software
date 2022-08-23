@@ -23,7 +23,7 @@ function Footer()
     $this->SetFont('Arial','B',10);
 
     $this->Cell(0,10,utf8_decode('Pagina ').$this->PageNo().'/{nb}',0,0,'C');
-    $this->Cell(0,9,utf8_decode("Derechos Reservados."),0,0,"C");
+    $this->Cell(0,7,utf8_decode("Derechos Reservados."),0,0,"C");
 }
 }
 
