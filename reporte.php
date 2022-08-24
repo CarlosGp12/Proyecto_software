@@ -10,7 +10,7 @@ function Header()
     $this->Image('img/farmacia.png',0,0,70);
     $this->SetFont('Times','B',20);
     $this->SetXY(80,15);
-    $this->Cell(100,8,'INFORME',0,0,'C',0);
+    $this->Cell(100,8,'REPORTE',0,0,'C',0);
     $this->Ln(40);
 }
 
@@ -23,7 +23,7 @@ function Footer()
     $this->SetFont('Arial','B',10);
 
     $this->Cell(0,10,utf8_decode('Pagina ').$this->PageNo().'/{nb}',0,0,'C');
-    $this->Cell(0,5,utf8_decode("Derechos Reservados."),0,0,"C");
+    $this->Cell(0,7,utf8_decode("Derechos Reservados."),0,0,"C");
 }
 }
 
