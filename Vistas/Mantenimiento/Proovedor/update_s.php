@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if(isset($_SESSION['username']))
 {
@@ -11,6 +12,7 @@ if(isset($_SESSION['username']))
             header('location: ../../login.php');
         }
     }
+
 
 ?>
 
@@ -32,16 +34,16 @@ if(isset($_SESSION['username']))
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../../Controlador/ProductosController.php", {
+				$.post("../../../Controlador/ProveedorController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../../Controlador/ProductosController.php",
+				$.post("../../../Controlador/ProveedorController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Perfil_Supervisor.php";
+				window.location.href = "Proovedor_Table.php";
 			});
 		});
 
@@ -53,7 +55,7 @@ if(isset($_SESSION['username']))
 		}
 
 		function cargardatos() {
-			$.post("../../../Controlador/ProductosController.php", {
+			$.post("../../../Controlador/ProveedorController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
@@ -61,11 +63,9 @@ if(isset($_SESSION['username']))
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#nombre").val(arg[0].nombre);
-			$("#descripcion").val(arg[0].descripcion);
-			$("#f_fabricacion").val(arg[0].f_fabricacion);
-			$("#f_caducidad").val(arg[0].f_caducidad);
-			$("#precio").val(arg[0].precio);
+			$("#nombre_Proveedor").val(arg[0].nombre_Proveedor);
+			$("#direccion_Proveedor").val(arg[0].direccion_Proveedor);
+			$("#celular").val(arg[0].celular);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -77,9 +77,9 @@ if(isset($_SESSION['username']))
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
-		<a href="Perfil_Supervisor.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+		<a href="Proovedor_Table.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
-	<h1 class="text-center">Edición de producto</h1>
+	<h1 class="text-center">Edición de Proveedor</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
 		
@@ -91,37 +91,23 @@ if(isset($_SESSION['username']))
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="nombre_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="descripcion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Descripcion</label>
+            <label for="direccion_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+                <input type="text" class="form-control" id="direccion_Proveedor" name="direccion_Proveedor" placeholder="Direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="f_fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_fabricacion</label>
+            <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_fabricacion" name="f_fabricacion" placeholder="Fecha de fabricacion">
-            </div>
-        </div>
-        
-        <div class="form-row py-2">
-            <label for="f_caducidad" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_caducidad</label>
-            <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_caducidad" name="f_caducidad" placeholder="Fecha de caduciodad">
-            </div>
-        </div>
-
-        <div class="form-row py-2">
-            <label for="precio" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
-            <div class="col-sm-2">
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="precio">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
         </div>
 

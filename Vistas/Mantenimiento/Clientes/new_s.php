@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 if(isset($_SESSION['username']))
 {
@@ -23,7 +25,7 @@ if(isset($_SESSION['username']))
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Nueva Recarga</title>
+    <title>Nuevo Cliente</title>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -38,9 +40,9 @@ if(isset($_SESSION['username']))
     <script type='text/javascript'>
         $(function () {
             $("#guardar").click(function () {
-                $.post("../../../Controlador/ProductosController.php",
+                $.post("../../../Controlador/ClientesController.php",
                     $("#datos").serialize(), respuesta);
-                window.location.href = "Perfil_Supervisor.php";
+                window.location.href = "Clientes_Table.php";
             });
         });
 
@@ -56,49 +58,34 @@ if(isset($_SESSION['username']))
     background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
     <div class="d-grid gap-2 col-6 mx-auto py-3">
-        <a href="Perfil_Supervisor.php" class="btn btn-warning " tabindex="-1" role="button"
+        <a href="Clientes_Table.php" class="btn btn-warning " tabindex="-1" role="button"
             aria-disabled="true">Regresar</a>
     </div>
 
-    <h1 class="text-center">Ingresar nuevo producto</h1>
+    <h1 class="text-center">Ingresar nuevo Cliente</h1>
     <form id="datos">
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="nombre_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre_Cliente" name="nombre_Cliente" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="descripcion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Descripcion</label>
+            <label for="direccion_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+                <input type="text" class="form-control" id="direccion_Cliente" name="direccion_Cliente" placeholder="Direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="f_fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_fabricacion</label>
+            <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_fabricacion" name="f_fabricacion" placeholder="Fecha de fabricacion">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
         </div>
-        
-        <div class="form-row py-2">
-            <label for="f_caducidad" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">f_caducidad</label>
-            <div class="col-sm-5">
-                <input type="date" class="form-control" id="f_caducidad" name="f_caducidad" placeholder="Fecha de caduciodad">
-            </div>
-        </div>
-
-        <div class="form-row py-2">
-            <label for="precio" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
-            <div class="col-sm-2">
-                <input type="number" class="form-control" id="precio" name="precio" placeholder="precio">
-            </div>
-        </div>
-
 
         <div class="d-grid gap-2 col-6 mx-auto py-3">
             <button type="button" class="w-75  btn btn-warning btn-lg " id="guardar">Guardar</button>

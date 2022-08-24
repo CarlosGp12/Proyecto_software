@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(isset($_SESSION['username']))
 {
@@ -8,11 +7,10 @@ if(isset($_SESSION['username']))
     if(!isset($_SESSION['rol'])){
         header('location: ../../login.php');
     }else{
-        if($_SESSION['rol'] != 1){
+        if($_SESSION['rol'] != 2){
             header('location: ../../login.php');
         }
     }
-
 
 ?>
 
@@ -34,16 +32,16 @@ if(isset($_SESSION['username']))
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../../Controlador/ProveedorController.php", {
+				$.post("../../../Controlador/ProductosController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../../Controlador/ProveedorController.php",
+				$.post("../../../Controlador/ProductosController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Proovedor_Table.php";
+				window.location.href = "Perfil_Supervisor.php";
 			});
 		});
 
@@ -55,7 +53,7 @@ if(isset($_SESSION['username']))
 		}
 
 		function cargardatos() {
-			$.post("../../../Controlador/ProveedorController.php", {
+			$.post("../../../Controlador/ProductosController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
@@ -63,9 +61,11 @@ if(isset($_SESSION['username']))
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#cedula").val(arg[0].cedula);
-			$("#nombre").val(arg[0].nombre);
-			$("#direccion").val(arg[0].direccion);
+			$("#nombre_Producto").val(arg[0].nombre_Producto);
+			$("#stock").val(arg[0].stock);
+			$("#fecha_Fabricacion").val(arg[0].fecha_Fabricacion);
+			$("#fecha_Vencimiento").val(arg[0].fecha_Vencimiento);
+			$("#precio_Venta").val(arg[0].precio_Venta);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -77,9 +77,9 @@ if(isset($_SESSION['username']))
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
-		<a href="Proovedor_Table.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+		<a href="Perfil_Supervisor.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
-	<h1 class="text-center">Edición de Proveedor</h1>
+	<h1 class="text-center">Edición de producto</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
 		
@@ -91,23 +91,37 @@ if(isset($_SESSION['username']))
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="cedula" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Cedula</label>
+            <label for="nombre_Produto" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="int" class="form-control" id="cedula" name="cedula" placeholder="cedula">
+                <input type="text" class="form-control" id="nombre_Produto" name="nombre_Produto" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="stock" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Stock</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre">
+                <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
+            <label for="fecha_Fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Fecha de Fabricacion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
+                <input type="date" class="form-control" id="fecha_Fabricacion" name="fecha_Fabricacion" placeholder="Fecha de Fabricacion">
+            </div>
+        </div>
+        
+        <div class="form-row py-2">
+            <label for="fecha_Vencimiento" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Fecha de Vencimiento</label>
+            <div class="col-sm-5">
+                <input type="date" class="form-control" id="fecha_Vencimiento" name="fecha_Vencimiento" placeholder="Fecha de caduciodad">
+            </div>
+        </div>
+
+        <div class="form-row py-2">
+            <label for="precio_Venta" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="precio_Venta" name="precio_Venta" placeholder="precio">
             </div>
         </div>
 

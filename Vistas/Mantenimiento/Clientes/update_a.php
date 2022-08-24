@@ -12,6 +12,7 @@ if(isset($_SESSION['username']))
             header('location: ../../login.php');
         }
     }
+
 ?>
 
 <!doctype html>
@@ -32,16 +33,16 @@ if(isset($_SESSION['username']))
 	<script type='text/javascript'>
 		$(function() {
 			$("#codigo").focusout(function() {
-				$.post("../../../Controlador/SupervisorController.php", {
+				$.post("../../../Controlador/ClientesController.php", {
 					'opcion': 'consultaxcodigo',
 					'codigo': $("#codigo").val()
 				}, respuesta1, 'json');
 			});
 
 			$("#guardar").click(function() {
-				$.post("../../../Controlador/SupervisorController.php",
+				$.post("../../../Controlador/ClientesController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Supervisor_Table.php";
+				window.location.href = "Clientes_Table_Admin.php";
 			});
 		});
 
@@ -53,7 +54,7 @@ if(isset($_SESSION['username']))
 		}
 
 		function cargardatos() {
-			$.post("../../../Controlador/SupervisorController.php", {
+			$.post("../../../Controlador/ClientesController.php", {
 				'opcion': 'consultaxcodigo',
 				'codigo': getParameterByName('id')
 			}, respuesta1, 'json');
@@ -61,10 +62,9 @@ if(isset($_SESSION['username']))
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#nombre_Usuario").val(arg[0].nombre_Usuario);
-			$("#correo").val(arg[0].correo);
-			$("#password").val(arg[0].password);
-            $("#direccion_Supervisor").val(arg[0].direccion_Supervisor);
+			$("#nombre_Cliente").val(arg[0].nombre_Cliente);
+			$("#direccion_Cliente").val(arg[0].direccion_Cliente);
+			$("#celular").val(arg[0].celular);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -76,9 +76,9 @@ if(isset($_SESSION['username']))
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
-		<a href="Supervisor_Table.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+		<a href="Clientes_Table_Admin.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
-	<h1 class="text-center">Edición de supervisor</h1>
+	<h1 class="text-center">Edición de Cliente</h1>
 	<form id="datos">
 		<input type="text" class="form-control" name="opcion" value="actualizar" hidden />
 		
@@ -90,30 +90,23 @@ if(isset($_SESSION['username']))
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="nombre_Usuario" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
+            <label for="nombre_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_Usuario" name="nombre_Usuario" placeholder="Usuario">
+                <input type="text" class="form-control" id="nombre_Cliente" name="nombre_Cliente" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="correo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Correo</label>
+            <label for="direccion_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
+                <input type="text" class="form-control" id="direccion_Cliente" name="direccion_Cliente" placeholder="Direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="password" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Contraseña</label>
+            <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
-            </div>
-        </div>
-
-        <div class="form-row py-2">
-            <label for="direccion_Supervisor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion_Supervisor" name="direccion_Supervisor" placeholder="Direccion">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
         </div>
 

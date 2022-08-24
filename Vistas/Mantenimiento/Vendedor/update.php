@@ -61,10 +61,10 @@ if(isset($_SESSION['username']))
 
 		function respuesta1(arg) {
 			$("#codigo").val(arg[0].id);
-			$("#usuario").val(arg[0].usuario);
-			$("#codigo1").val(arg[0].codigo1);
-			$("#direccion").val(arg[0].direccion);
-            $("#email").val(arg[0].email);
+			$("#nombre_UsuarioV").val(arg[0].nombre_UsuarioV);
+			$("#correo").val(arg[0].correo);
+			$("#password").val(arg[0].password);
+            $("#direccion_Vendedor").val(arg[0].direccion_Vendedor);
 		}
 		function respuesta2(arg) {
 			alert(arg);
@@ -90,30 +90,30 @@ if(isset($_SESSION['username']))
 			</div>
 			
 		<div class="form-row py-2">
-            <label for="usuario" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
+            <label for="nombre_UsuarioV" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
+                <input type="text" class="form-control" id="nombre_UsuarioV" name="nombre_UsuarioV" placeholder="Usuario">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
+            <label for="correo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Correo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="codigo1" name="codigo1" placeholder="codigo">
+                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
+            <label for="password" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Contraseña</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
+                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="email" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Email</label>
+            <label for="direccion_Vendedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                <input type="text" class="form-control" id="direccion_Vendedor" name="direccion_Vendedor" placeholder="Direccion">
             </div>
         </div>
 

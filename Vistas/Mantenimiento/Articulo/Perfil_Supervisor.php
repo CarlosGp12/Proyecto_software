@@ -50,7 +50,7 @@ else {
     }
 
     function editar(codigo) {
-      document.location.href = "update.php?id=" + codigo;
+      document.location.href = "update_s.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -62,7 +62,7 @@ else {
 
   <div class="d-flex">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 970px;">
-      <a href="../../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <a href="../../index_s.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4">Farmacia</span>
       </a>
       <hr>
@@ -80,16 +80,16 @@ else {
 
     <div class="edi">
       <h1 class="text-center">Productos</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="new_s.php">Nuevo Producto</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
           <tr>
-            <th scope="col">id</th>
+          <th scope="col">id</th>
             <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">f_fabricacion</th>
-            <th scope="col">f_caducidad</th>
+            <th scope="col">stock</th>
+            <th scope="col">fecha de fabricacion</th>
+            <th scope="col">fecha de vencimiento</th>
             <th scope="col">precio</th>
           </tr>
         </thead>

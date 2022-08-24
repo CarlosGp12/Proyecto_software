@@ -8,7 +8,7 @@ if(isset($_SESSION['username']))
     if(!isset($_SESSION['rol'])){
         header('location: ../../login.php');
     }else{
-        if($_SESSION['rol'] != 1){
+        if($_SESSION['rol'] != 2){
             header('location: ../../login.php');
         }
     }
@@ -66,23 +66,23 @@ if(isset($_SESSION['username']))
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
-            <label for="cedula" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Cedula</label>
+            <label for="nombre_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="int" class="form-control" id="cedula" name="cedula" placeholder="cedula">
+                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="nombre" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
+            <label for="direccion_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre">
+                <input type="text" class="form-control" id="direccion_Proveedor" name="direccion_Proveedor" placeholder="Direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
+            <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
         </div>
 

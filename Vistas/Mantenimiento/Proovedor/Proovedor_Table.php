@@ -1,17 +1,16 @@
 <?php
 
 session_start();
-if(isset($_SESSION['username']))
-{
+if (isset($_SESSION['username'])) {
 }
 
-    if(!isset($_SESSION['rol'])){
-        header('location: ../../login.php');
-    }else{
-        if($_SESSION['rol'] != 2){
-            header('location: ../../login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: ../../login.php');
+} else {
+  if ($_SESSION['rol'] != 2) {
+    header('location: ../../login.php');
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +20,7 @@ if(isset($_SESSION['username']))
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
 
   <title>Perfil</title>
@@ -40,8 +38,10 @@ if(isset($_SESSION['username']))
     }
 
     function eliminar(codigo) {
-      $.post("../../../Controlador/ProveedorController.php",
-        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
+      $.post("../../../Controlador/ProveedorController.php", {
+        'opcion': 'eliminar',
+        'id': codigo
+      }, respuesta);
 
       window.location.href = "Proovedor_Table.php";
     }
@@ -53,9 +53,7 @@ if(isset($_SESSION['username']))
   </script>
 </head>
 
-<body
-  background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg"
-  class="cuerpo">
+<body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg" class="cuerpo">
 
   <div class="d-flex">
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 970px;">
@@ -83,9 +81,9 @@ if(isset($_SESSION['username']))
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Direccion</th>
+            <th scope="col">Celular</th>
           </tr>
         </thead>
         <tbody>
@@ -93,9 +91,7 @@ if(isset($_SESSION['username']))
       </table>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

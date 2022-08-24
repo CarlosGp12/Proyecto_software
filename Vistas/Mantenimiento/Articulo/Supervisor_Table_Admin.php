@@ -1,16 +1,4 @@
 <?php
-// session_start();
-// if (isset($_SESSION['username'])) {
-// }
-
-// if (!isset($_SESSION['rol'])) {
-//   header('location: ../../login.php');
-// } else {
-//   if ($_SESSION['rol'] != 1) {
-//     header('location: ../../login.php');
-//   }
-// }
-
 
 ?>
 
@@ -36,11 +24,11 @@
         'id': codigo
       }, respuesta);
 
-      window.location.href = "Perfil_Supervisor.php";
+      window.location.href = "Supervisor_Table_Admin.php";
     }
 
     function editar(codigo) {
-      document.location.href = "update.php?id=" + codigo;
+      document.location.href = "update_a.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -51,17 +39,17 @@
 
 
         <h1 class="text-center">Productos</h1>
-        <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Producto</a></button>
+        <button type="button" class="btn btn-outline-dark"><a href="new_a.php">Nuevo Producto</a></button>
         <br />
         <table class="table" id="datos">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">f_fabricacion</th>
-            <th scope="col">f_caducidad</th>
-            <th scope="col">precio</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Fecha de fabricacion</th>
+            <th scope="col">Fecha de vencimiento</th>
+            <th scope="col">Precio</th>
           </tr>
         </thead>
         <tbody>

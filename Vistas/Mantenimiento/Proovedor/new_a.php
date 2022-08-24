@@ -12,6 +12,7 @@ if(isset($_SESSION['username']))
             header('location: ../../login.php');
         }
     }
+
 ?>
 
 <!doctype html>
@@ -34,13 +35,13 @@ if(isset($_SESSION['username']))
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
+    <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
     <script type='text/javascript'>
         $(function () {
             $("#guardar").click(function () {
-                $.post("../../../Controlador/VendedorController.php",
+                $.post("../../../Controlador/ProveedorController.php",
                     $("#datos").serialize(), respuesta);
-                window.location.href = "Vendedor_Table.php";
+                window.location.href = "Proovedor_Table_Admin.php";
             });
         });
 
@@ -56,42 +57,35 @@ if(isset($_SESSION['username']))
     background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
     <div class="d-grid gap-2 col-6 mx-auto py-3">
-        <a href="Vendedor_Table.php" class="btn btn-warning " tabindex="-1" role="button"
+        <a href="Proovedor_Table_Admin.php" class="btn btn-warning " tabindex="-1" role="button"
             aria-disabled="true">Regresar</a>
     </div>
 
-    <h1 class="text-center">Ingresar nuevo vendedor</h1>
+    <h1 class="text-center">Ingresar nuevo proovedor</h1>
     <form id="datos">
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
-            <label for="nombre_UsuarioV" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
+            <label for="nombre_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_UsuarioV" name="nombre_UsuarioV" placeholder="Usuario">
+                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="correo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Correo</label>
+            <label for="direccion_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
+                <input type="text" class="form-control" id="direccion_Proveedor" name="direccion_Proveedor" placeholder="Direccion">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="password" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Contraseña</label>
+            <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
             </div>
         </div>
 
-        <div class="form-row py-2">
-            <label for="direccion_Vendedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion_Vendedor" name="direccion_Vendedor" placeholder="Direccion">
-            </div>
-        </div>
-        
         <div class="d-grid gap-2 col-6 mx-auto py-3">
             <button type="button" class="w-75  btn btn-warning btn-lg " id="guardar">Guardar</button>
         </div>

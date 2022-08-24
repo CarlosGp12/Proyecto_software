@@ -1,18 +1,5 @@
 <?php
 
-// session_start();
-// if(isset($_SESSION['username']))
-// {
-// }
-
-//     if(!isset($_SESSION['rol'])){
-//         header('location: ../../login.php');
-//     }else{
-//         if($_SESSION['rol'] != 1){
-//             header('location: ../../login.php');
-//         }
-//     }
-
 ?>
 
 
@@ -37,11 +24,11 @@
       $.post("../../../Controlador/ClientesController.php",
         { 'opcion': 'eliminar', 'id': codigo }, respuesta);
 
-      window.location.href = "Clientes_Table.php";
+      window.location.href = "Clientes_Table_Admin.php";
     }
 
     function editar(codigo) {
-      document.location.href = "update.php?id=" + codigo;
+      document.location.href = "update_a_.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -51,15 +38,15 @@
     <section class="page-content">
 
       <h1 class="text-center">Clientes</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Cliente</a></button>
+      <button type="button" class="btn btn-outline-dark"><a href="new_a.php">Nuevo Cliente</a></button>
       <br />
       <table class="table" id="datos">
         <thead>
           <tr>
             <th scope="col">id</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
             <th scope="col">Direccion</th>
+            <th scope="col">Celular</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>

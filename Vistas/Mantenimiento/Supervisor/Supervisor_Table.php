@@ -1,17 +1,4 @@
 <?php
-
-// session_start();
-// if(isset($_SESSION['username']))
-// {
-// }
-
-//     if(!isset($_SESSION['rol'])){
-//         header('location: ../../login.php');
-//     }else{
-//         if($_SESSION['rol'] != 1){
-//             header('location: ../../login.php');
-//         }
-//     }
 ?>
 
 <!DOCTYPE html>
@@ -64,9 +51,9 @@
       <tr>
         <th scope="col">id</th>
         <th scope="col">Usuario</th>
-        <th scope="col">Codigo</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Contraseña     </th>
         <th scope="col">Direccion</th>
-        <th scope="col">Email</th>
       </tr>
     </thead>
     <tbody>

@@ -64,30 +64,30 @@ if(isset($_SESSION['username']))
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
-            <label for="usuario" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
+            <label for="nombre_Usuario" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
+                <input type="text" class="form-control" id="nombre_Usuario" name="nombre_Usuario" placeholder="Usuario">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="codigo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Codigo</label>
+            <label for="correo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Correo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="codigo1" name="codigo1" placeholder="codigo">
+                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="direccion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
+            <label for="password" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Contraseña</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
+                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
             </div>
         </div>
 
         <div class="form-row py-2">
-            <label for="email" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Email</label>
+            <label for="direccion_Supervisor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="email" name="email" placeholder="email">
+                <input type="text" class="form-control" id="direccion_Supervisor" name="direccion_Supervisor" placeholder="Direccion">
             </div>
         </div>
         
