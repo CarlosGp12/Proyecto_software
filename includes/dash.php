@@ -178,7 +178,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#0">
+                    <a href="Articulo_Chart_s.php">
                         <svg>
                             <use xlink:href="#charts"></use>
                         </svg>
