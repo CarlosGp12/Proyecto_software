@@ -642,3 +642,14 @@ td{
   border-radius: 1rem;
 
 }
+
+.page-content .grid a{
+  text-align: center;
+  background-color: #242e42;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 40%;
+  width: 100%;
+}
+

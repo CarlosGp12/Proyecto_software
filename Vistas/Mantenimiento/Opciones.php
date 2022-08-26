@@ -14,10 +14,26 @@
 require '../../includes/dash.php';
  ?>
 
+<section class="page-content" >
+    <div class="grid">
+    
+
+        <a href="Articulo_Chart_s.php">
+            <p>Ingrese aqui para ver los productos mas vendidos del dia</p>
+
+        </a>
+
+        <a href="">
+            <p>Ingrese aqui para ver los productos mas vendidos del dia</p>
+
+        </a>
 
 
+    </div>
+    
+
+</section>
 
 
-</body>
 
 </html>
