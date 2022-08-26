@@ -11,22 +11,34 @@ if (!isset($_SESSION['rol'])) {
   }
 }
 require '../../includes/dash.php';
+require_once("../../Modelo/Factura.php");
 
+$objregistro = new Factura;
+$datos = $objregistro->ObtenerTodos();
 
+foreach ($datos as $fila) {
+
+  $nombre[] = $fila['nombre_Producto'];
+  $cantidad[] = $fila['cantidad'];
+}
 
 ?>
 
 <section class="page-content">
   <main class="menu">
     <div class="container py-4">
-      <div style="width: 500px;">
-        <canvas id="myChart"></canvas>
-      </div>
 
+      <div class="grafBarra">
+        <canvas id="myChart"></canvas>
+        <canvas id="Chart"></canvas>
+
+      </div>
 
   </main>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
 </body>
 
@@ -34,12 +46,12 @@ require '../../includes/dash.php';
 
 <script>
   // === include 'setup' then 'config' above ===
-  const labels = <?php echo json_encode($month) ?>;
+  const labels = <?php echo json_encode($nombre) ?>;
   const data = {
     labels: labels,
     datasets: [{
-      label: 'My First Dataset',
-      data: <?php echo json_encode($amount) ?>,
+      label: 'Productos mas vendidos al final del dia',
+      data: <?php echo json_encode($cantidad) ?>,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',

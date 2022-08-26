@@ -6,7 +6,7 @@ if (isset($_SESSION['username'])) {
 if (!isset($_SESSION['rol'])) {
   header('location: ../login.php');
 } else {
-  if ($_SESSION['rol'] != 1) {
+  if ($_SESSION['rol'] != 2) {
     header('location: ../login.php');
   }
 }
@@ -28,8 +28,10 @@ foreach ($datos as $fila) {
   <main class="menu">
     <div class="container py-4">
 
-      <div style="width: 1300px;">
+      <div class="grafBarra">
         <canvas id="myChart"></canvas>
+        
+        
       </div>
 
   </main>

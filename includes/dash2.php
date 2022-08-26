@@ -104,20 +104,48 @@ if (!isset($_SESSION)) {
     </svg>
     <header class="page-header">
         <nav>
-            <a href=".." aria-label="forecastr logo" class="logo">
-                <svg width="140" height="49">
-                    <use xlink:href="#logo"></use>
-                </svg>
-            </a>
+
+            <?php if ($_SESSION['rol'] == 1) : ?>
+                <a href="../../index_t.php" aria-label="forecastr logo" class="logo">
+                    <svg width="140" height="49">
+                        <use xlink:href="#logo"></use>
+                    </svg>
+                </a>
+            <?php endif; ?>
+            <?php if ($_SESSION['rol'] == 2) : ?>
+                <a href="../../index_s.php" aria-label="forecastr logo" class="logo">
+                    <svg width="140" height="49">
+                        <use xlink:href="#logo"></use>
+                    </svg>
+                </a>
+            <?php endif; ?>
             <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
                 <svg width="20" height="20" aria-hidden="true">
                     <use xlink:href="#down"></use>
                 </svg>
             </button>
             <ul class="admin-menu">
-                <li class="menu-heading">
-                    <h3>Admin</h3>
-                </li>
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li class="menu-heading">
+                        <h3>Administrador</h3>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li class="menu-heading">
+                        <h3>Supervisor</h3>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li class="menu-heading">
+                        <?php echo $_SESSION['username'] ?>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li class="menu-heading">
+                        <?php echo $_SESSION['username'] ?>
+                    </li>
+                <?php endif; ?>
 
                 <?php if ($_SESSION['rol'] == 1) : ?>
                     <li>
@@ -205,11 +233,21 @@ if (!isset($_SESSION)) {
                 <?php endif; ?>
                 <?php if ($_SESSION['rol'] == 1) : ?>
                     <li>
+                        <a href="../Articulo_Chart_a.php">
+                            <svg>
+                                <use xlink:href="#charts"></use>
+                            </svg>
+                            <span>Graficos</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li>
                         <a href="../Articulo_Chart_s.php">
                             <svg>
                                 <use xlink:href="#charts"></use>
                             </svg>
-                            <span>Charts</span>
+                            <span>Graficos</span>
                         </a>
                     </li>
                 <?php endif; ?>
@@ -224,7 +262,7 @@ if (!isset($_SESSION)) {
                         </label>
                     </div>
 
-                    <a href="../../../Modelo/logout.php?logout"> <button >Log-out</button></a>
+                    <a href="../../../Modelo/logout.php?logout"> <button>Log-out</button></a>
                     <button class="collapse-btn" aria-expanded="true" aria-label="collapse menu">
                         <svg aria-hidden="true">
                             <use xlink:href="#collapse"></use>
