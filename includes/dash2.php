@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +19,7 @@
     <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
 </head>
 
-<body  class="cuerpo">
+<body class="cuerpo">
     <svg style="display:none;">
         <symbol id="logo" viewBox="0 0 140 59">
             <g>
@@ -97,7 +104,7 @@
     </svg>
     <header class="page-header">
         <nav>
-            <a href="#0" aria-label="forecastr logo" class="logo">
+            <a href=".." aria-label="forecastr logo" class="logo">
                 <svg width="140" height="49">
                     <use xlink:href="#logo"></use>
                 </svg>
@@ -111,81 +118,103 @@
                 <li class="menu-heading">
                     <h3>Admin</h3>
                 </li>
-                <li>
-                    <a href="../Articulo/Supervisor_Table_Admin.php">
-                        <svg>
-                            <use xlink:href="#pages"></use>
-                        </svg>
-                        <span>Articulo</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Clientes/Clientes_Table_Admin.php">
-                        <svg>
-                            <use xlink:href="#users"></use>
-                        </svg>
-                        <span>Cliente</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Proovedor/Proovedor_Table_Admin.php">
-                        <svg>
-                            <use xlink:href="#trends"></use>
-                        </svg>
-                        <span>Proveedor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Supervisor/Supervisor_Table.php">
-                        <svg>
-                            <use xlink:href="#collection"></use>
-                        </svg>
-                        <span>Supervisor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Vendedor/Vendedor_Table.php">
-                        <svg>
-                            <use xlink:href="#comments"></use>
-                        </svg>
-                        <span>Vendedor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <svg>
-                            <use xlink:href="#appearance"></use>
-                        </svg>
-                        <span>Appearance</span>
-                    </a>
-                </li>
-                <li class="menu-heading">
-                    <h3>Settings</h3>
-                </li>
-                <li>
-                    <a href="#0">
-                        <svg>
-                            <use xlink:href="#settings"></use>
-                        </svg>
-                        <span>Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#0">
-                        <svg>
-                            <use xlink:href="#options"></use>
-                        </svg>
-                        <span>Options</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Articulo_Chart_s.php">
-                        <svg>
-                            <use xlink:href="#charts"></use>
-                        </svg>
-                        <span>Charts</span>
-                    </a>
-                </li>
+
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Articulo/Supervisor_Table_Admin.php">
+                            <svg>
+                                <use xlink:href="#pages"></use>
+                            </svg>
+                            <span>Articulo</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li>
+                        <a href="../Articulo/Perfil_Supervisor.php">
+                            <svg>
+                                <use xlink:href="#pages"></use>
+                            </svg>
+                            <span>Articulo</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Clientes/Clientes_Table_Admin.php">
+                            <svg>
+                                <use xlink:href="#users"></use>
+                            </svg>
+                            <span>Cliente</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li>
+                        <a href="../Clientes/Clientes_Table.php">
+                            <svg>
+                                <use xlink:href="#users"></use>
+                            </svg>
+                            <span>Cliente</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Proovedor/Proovedor_Table_Admin.php">
+                            <svg>
+                                <use xlink:href="#trends"></use>
+                            </svg>
+                            <span>Proveedor</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 2) : ?>
+                    <li>
+                        <a href="../Proovedor/Proovedor_Table.php">
+                            <svg>
+                                <use xlink:href="#trends"></use>
+                            </svg>
+                            <span>Proveedor</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Supervisor/Supervisor_Table.php">
+                            <svg>
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                            <span>Supervisor</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Vendedor/Vendedor_Table.php">
+                            <svg>
+                                <use xlink:href="#comments"></use>
+                            </svg>
+                            <span>Vendedor</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if ($_SESSION['rol'] == 1) : ?>
+                    <li>
+                        <a href="../Articulo_Chart_s.php">
+                            <svg>
+                                <use xlink:href="#charts"></use>
+                            </svg>
+                            <span>Charts</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+
                 <li>
                     <div class="switch">
                         <input type="checkbox" id="mode" checked>
@@ -194,6 +223,8 @@
                             <span>Dark</span>
                         </label>
                     </div>
+
+                    <a href="../../../Modelo/logout.php?logout"> <button >Log-out</button></a>
                     <button class="collapse-btn" aria-expanded="true" aria-label="collapse menu">
                         <svg aria-hidden="true">
                             <use xlink:href="#collapse"></use>

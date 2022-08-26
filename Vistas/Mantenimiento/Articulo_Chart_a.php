@@ -1,38 +1,37 @@
 <?php
- session_start();
- if(isset($_SESSION['username']))
- {
+session_start();
+if (isset($_SESSION['username'])) {
 }
 
-   if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-     }else{
-         if($_SESSION['rol'] != 1){
-             header('location: ../login.php');
-         }
-     }
+if (!isset($_SESSION['rol'])) {
+  header('location: ../login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: ../login.php');
+  }
+}
 require '../../includes/dash.php';
 
 
 
- ?>
+?>
 
-    <div class="edi">
-        <main class="menu">
-            <div class="container py-4">
+<section class="page-content">
+  <main class="menu">
+    <div class="container py-4">
+      <div style="width: 500px;">
+        <canvas id="myChart"></canvas>
+      </div>
 
 
-
-        </main>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </main>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 
-<div style="width: 500px;">
-  <canvas id="myChart"></canvas>
-</div>
- 
+
+
 <script>
   // === include 'setup' then 'config' above ===
   const labels = <?php echo json_encode($month) ?>;

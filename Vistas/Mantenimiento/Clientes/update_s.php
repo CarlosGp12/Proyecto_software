@@ -8,7 +8,7 @@ if(isset($_SESSION['username']))
     if(!isset($_SESSION['rol'])){
         header('location: ../../login.php');
     }else{
-        if($_SESSION['rol'] != 1){
+        if($_SESSION['rol'] != 2){
             header('location: ../../login.php');
         }
     }
@@ -42,7 +42,7 @@ if(isset($_SESSION['username']))
 			$("#guardar").click(function() {
 				$.post("../../../Controlador/ClientesController.php",
 					$("#datos").serialize(), respuesta2);
-				window.location.href = "Clientes_Table_Admin.php";
+				window.location.href = "Clientes_Table.php";
 			});
 		});
 

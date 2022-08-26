@@ -2,17 +2,16 @@
 
 
 session_start();
-if(isset($_SESSION['username']))
-{
+if (isset($_SESSION['username'])) {
 }
 
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: login.php');
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +57,7 @@ if(isset($_SESSION['username']))
 <?php require '../../../includes/dash2.php'; ?>
 <section class="page-content">
   <h1 class="text-center">Vendedores</h1>
-  <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Vendedor</a></button>
+  <button type="button" class="botones"><a href="new.php">Nuevo Vendedor</a></button>
   <br />
   <table class="table" id="datos">
     <thead>
@@ -68,6 +67,8 @@ if(isset($_SESSION['username']))
         <th scope="col">Correo</th>
         <th scope="col">Contraseña</th>
         <th scope="col">Direccion</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>

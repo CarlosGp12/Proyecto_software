@@ -2,17 +2,16 @@
 
 
 session_start();
-if(isset($_SESSION['username']))
-{
+if (isset($_SESSION['username'])) {
 }
 
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: login.php');
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ if(isset($_SESSION['username']))
     }
 
     function editar(codigo) {
-      document.location.href = "update.php?id=" + codigo;
+      document.location.href = "update_a.php?id=" + codigo;
     }
     window.onload = cargarcontrolador;
   </script>
@@ -57,7 +56,7 @@ if(isset($_SESSION['username']))
 <section class="page-content">
 
   <h1 class="text-center">Proovedores</h1>
-  <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Proovedor</a></button>
+  <button type="button" class="botones"><a href="new_a.php">Nuevo Proovedor</a></button>
   <br />
   <table class="table" id="datos">
     <thead>
@@ -66,6 +65,8 @@ if(isset($_SESSION['username']))
         <th scope="col">Nombre</th>
         <th scope="col">Direccion</th>
         <th scope="col">Celular</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>

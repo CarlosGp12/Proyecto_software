@@ -77,7 +77,7 @@ if(isset($_SESSION['username']))
 <body background="https://blakesguam.com/wp-content/uploads/2016/08/photodune-6207464-geometric-polygon-abstract-background-l-4.jpg">
 
 	<div class="d-grid gap-2 col-6 mx-auto py-3">
-		<a href="Perfil_Supervisor.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
+		<a href="Supervisor_Table_Admin.php" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Regresar</a>
 	</div>
 	<h1 class="text-center">Edición de producto</h1>
 	<form id="datos">

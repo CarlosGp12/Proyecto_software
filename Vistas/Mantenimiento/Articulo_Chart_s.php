@@ -1,48 +1,46 @@
 <?php
- session_start();
- if(isset($_SESSION['username']))
- {
+session_start();
+if (isset($_SESSION['username'])) {
 }
 
-   if(!isset($_SESSION['rol'])){
-        header('location: ../login.php');
-     }else{
-         if($_SESSION['rol'] != 1){
-             header('location: ../login.php');
-         }
-     }
+if (!isset($_SESSION['rol'])) {
+  header('location: ../login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: ../login.php');
+  }
+}
 require '../../includes/dash.php';
 require_once("../../Modelo/Factura.php");
 
 $objregistro = new Factura;
 $datos = $objregistro->ObtenerTodos();
 
-foreach($datos as $fila){
+foreach ($datos as $fila) {
 
-    $nombre[] = $fila['nombre_Producto'];
-    $cantidad[] = $fila['cantidad'];
-
+  $nombre[] = $fila['nombre_Producto'];
+  $cantidad[] = $fila['cantidad'];
 }
 
- ?>
+?>
 
-    <div class="edi">
-        <main class="menu">
-            <div class="container py-4">
+<section class="page-content">
+  <main class="menu">
+    <div class="container py-4">
 
+      <div style="width: 1300px;">
+        <canvas id="myChart"></canvas>
+      </div>
 
-
-        </main>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </main>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 </body>
 
-<div style="width: 1300px;">
-  <canvas id="myChart"></canvas>
-</div>
+
 
 <script>
   // === include 'setup' then 'config' above ===

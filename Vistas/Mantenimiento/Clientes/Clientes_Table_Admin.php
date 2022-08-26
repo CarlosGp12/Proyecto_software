@@ -2,18 +2,18 @@
 
 
 session_start();
-if(isset($_SESSION['username']))
-{
+if (isset($_SESSION['username'])) {
 }
 
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: login.php');
+  }
+}
 ?>
+
 <head>
 
   <title>Perfil</title>
@@ -30,10 +30,11 @@ if(isset($_SESSION['username']))
       $("#datos tbody").append(arg);
     }
 
-    function eliminar(codigo)
-    {
-      $.post("../../../Controlador/ClientesController.php",
-        { 'opcion': 'eliminar', 'id': codigo }, respuesta);
+    function eliminar(codigo) {
+      $.post("../../../Controlador/ClientesController.php", {
+        'opcion': 'eliminar',
+        'id': codigo
+      }, respuesta);
 
       window.location.href = "Clientes_Table_Admin.php";
     }
@@ -45,26 +46,27 @@ if(isset($_SESSION['username']))
   </script>
 </head>
 
-  <?php require '../../../includes/dash2.php';?>
-    <section class="page-content">
+<?php require '../../../includes/dash2.php'; ?>
+<section class="page-content">
 
-      <h1 class="text-center">Clientes</h1>
-      <button type="button" class="btn btn-outline-dark"><a href="new_a.php">Nuevo Cliente</a></button>
-      <br />
-      <table class="table" id="datos">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Celular</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </section>
+  <h1 class="text-center">Clientes</h1>
+  <button type="button" class="botones"><a href="new_a.php">Nuevo Cliente</a></button>
+  <br />
+  <table class="table" id="datos">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</section>
 </body>
 
 </html>

@@ -2,17 +2,16 @@
 
 
 session_start();
-if(isset($_SESSION['username']))
-{
+if (isset($_SESSION['username'])) {
 }
 
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
+if (!isset($_SESSION['rol'])) {
+  header('location: login.php');
+} else {
+  if ($_SESSION['rol'] != 1) {
+    header('location: login.php');
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +57,7 @@ if(isset($_SESSION['username']))
 <section class="page-content">
 
   <h1 class="text-center">Supervisores</h1>
-  <button type="button" class="btn btn-outline-dark"><a href="new.php">Nuevo Supervisor</a></button>
+  <button type="button" class="botones"><a href="new.php">Nuevo Supervisor</a></button>
   <br />
   <table class="table" id="datos">
     <thead>
@@ -66,8 +65,10 @@ if(isset($_SESSION['username']))
         <th scope="col">id</th>
         <th scope="col">Usuario</th>
         <th scope="col">Correo</th>
-        <th scope="col">Contraseña     </th>
+        <th scope="col">Contraseña</th>
         <th scope="col">Direccion</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>

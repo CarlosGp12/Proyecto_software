@@ -8,7 +8,7 @@ switch ($_POST['opcion']) {
 
         foreach ($datos as $fila) {
             $tabla .= "<tr>";
-            $tabla .= "<th scope='row'>" . $fila['ID_Vendedor'] . "</th>";
+            $tabla .= "<th class='id' scope='row'>" . $fila['ID_Vendedor'] . "</th>";
             $tabla .= "<td>" . $fila['nombre_UsuarioV'] . "</td>";
             $tabla .= "<td>" . $fila['correo'] . "</td>";
             $tabla .= "<td>" . $fila['password'] . "</td>";
