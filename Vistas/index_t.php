@@ -125,7 +125,13 @@ if (!isset($_SESSION['rol'])) {
                                 <td width="15%" class="text-center"><?php echo $producto['CANTIDAD'] ?></td>
                                 <td width="20%" class="text-center">$<?php echo $producto['PRECIO'] ?></td>
                                 <td width="20%" class="text-center">$<?php echo number_format($producto['PRECIO'] * $producto['CANTIDAD'], 2); ?></td>
-                                <td width="5%"><button class="btn btn-danger" type="button">B</button></td>
+                                <td width="5%">
+                                    <form action="" method="post">
+                                        <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['id'], COD, KEY); ?>">
+
+                                        <button class="btn btn-danger" type="button" name="btnAccion" value="Eliminar">B</button>
+                                    </form>
+                                </td>
 
                             </tr>
                             <?php $total = $total + ($producto['PRECIO'] * $producto['CANTIDAD']); ?>
@@ -136,6 +142,24 @@ if (!isset($_SESSION['rol'])) {
                             </td>
                             <td align="right">
                                 <h3><?php echo number_format($total, 2); ?></h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <form action="pagar.php" method="post">
+                                    <div class="alert alert-success">
+                                        <div class="form-group">
+                                            <label for="my-input">Nombre de contacto</label>
+                                            <input id="nombre_Cliente" name="nombre_Cliente" class="form-control" type="namespace" placeholder="Escribe El nombre del cliente" require>
+                                            <label for="my-input">direccion de contacto</label>
+                                            <input id="direccion_Cliente" name="direccion_Cliente" class="form-control" type="namespace" placeholder="Escribe la direccion del cliente" require>
+                                            <label for="my-input">Telefono de contacto</label>
+                                            <input id="celular" name="celular" class="form-control" type="namespace" placeholder="Escribe El celular del cliente" require>
+                                        </div>
+
+                                    </div>
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAccion" value="proceder">Proceder a pagar >></button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>
@@ -155,10 +179,10 @@ if (!isset($_SESSION['rol'])) {
         <div class="row g-3">
             <?php
 
-require_once("../Modelo/Productos.php");
+            require_once("../Modelo/Productos.php");
 
-$objregistro = new Productos;
-$datos = $objregistro->ObtenerTodos();
+            $objregistro = new Productos;
+            $datos = $objregistro->ObtenerTodos();
 
             ?>
             <?php foreach ($datos as $producto) { ?>

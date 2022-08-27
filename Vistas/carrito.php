@@ -52,6 +52,18 @@ if (isset($_POST['btnAccion'])) {
             }
 
             break;
+        case "Eliminar":
+            if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {
+                $ID = openssl_decrypt($_POST['id'], COD, KEY);
+                foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+                    if ($producto['id'] == $ID) {
+                        unset($_SESSION['CARRITO'][$indice]);
+                    }
+                }
+            } else {
+                $mensaje .= "Incorrecto" . $ID;
+            }
+            break;
     }
 }
 ?>
