@@ -68,7 +68,7 @@ if(isset($_SESSION['username']))
         <div class="form-row py-2">
             <label for="nombre_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre" placeholder="Nombre" maxlength="50" required="">
             </div>
         </div>
 
@@ -82,7 +82,7 @@ if(isset($_SESSION['username']))
         <div class="form-row py-2">
             <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" pattern="[0-9]+" maxlength="11"required="">
             </div>
         </div>
 

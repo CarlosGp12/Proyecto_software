@@ -62,27 +62,27 @@ if(isset($_SESSION['username']))
     </div>
 
     <h1 class="text-center">Ingresar nuevo proovedor</h1>
-    <form id="datos">
+    <form id="datos" novalidate>
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
             <label for="nombre_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre_Proveedor" name="nombre_Proveedor" placeholder="Nombre" maxlength="50" required="">
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="direccion_Proveedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion_Proveedor" name="direccion_Proveedor" placeholder="Direccion">
+                <input type="text" class="form-control" id="direccion_Proveedor" name="direccion_Proveedor" placeholder="Direccion"  required="">
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" pattern="[0-9]+" maxlength="11"required="">
             </div>
         </div>
 

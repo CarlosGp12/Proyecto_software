@@ -67,28 +67,28 @@ if(isset($_SESSION['username']))
         <div class="form-row py-2">
             <label for="nombre_UsuarioV" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Usuario</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_UsuarioV" name="nombre_UsuarioV" placeholder="Usuario">
+                <input type="text" class="form-control" id="nombre_UsuarioV" name="nombre_UsuarioV" placeholder="Usuario" maxlength="30" required >
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="correo" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Correo</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
+                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo" maxlength="50" required>
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="password" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Contraseña</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="password" name="password" placeholder="Contraseña">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" maxlength="10" required>
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="direccion_Vendedor" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion_Vendedor" name="direccion_Vendedor" placeholder="Direccion">
+                <input type="text" class="form-control" id="direccion_Vendedor" name="direccion_Vendedor" placeholder="Direccion" required>
             </div>
         </div>
         

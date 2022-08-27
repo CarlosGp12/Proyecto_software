@@ -18,7 +18,7 @@ if(isset($_SESSION['username']))
 
 <!doctype html>
 <html lang="en">
-
+a
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -63,34 +63,38 @@ if(isset($_SESSION['username']))
     </div>
 
     <h1 class="text-center">Ingresar nuevo Cliente</h1>
-    <form id="datos">
+    <form id="datos" name="addform" novalidate>
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
             <label for="nombre_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_Cliente" name="nombre_Cliente" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre_Cliente" name="nombre_Cliente" placeholder="Nombre" maxlength="30" required>
             </div>
+
         </div>
 
         <div class="form-row py-2">
             <label for="direccion_Cliente" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Direccion</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="direccion_Cliente" name="direccion_Cliente" placeholder="Direccion">
+                <input type="text" class="form-control" id="direccion_Cliente" name="direccion_Cliente" placeholder="Direccion" required>
             </div>
+
         </div>
 
         <div class="form-row py-2">
             <label for="celular" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Celular</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular">
+                <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" maxlength="11" pattern="[0-9]+" required>
             </div>
+
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto py-3">
-            <button type="button" class="w-75  btn btn-warning btn-lg " id="guardar">Guardar</button>
+            <button type="button" class="w-75  btn btn-warning btn-lg "  id="guardar">Guardar</button>
         </div>
     </form>
+
 </body>
 
 </html>

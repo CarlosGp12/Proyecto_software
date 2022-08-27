@@ -61,48 +61,53 @@ if(isset($_SESSION['username']))
     </div>
 
     <h1 class="text-center">Ingresar nuevo producto</h1>
-    <form id="datos">
+    <form id="datos" name="addform" novalidate>
         <input type="text" class="form-control" name="opcion" value="ingresar" hidden />
 
         <div class="form-row py-2">
             <label for="nombre_Produto" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Nombre</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="nombre_Produto" name="nombre_Produto" placeholder="Nombre">
+                <input type="text" class="form-control is invalid" id="nombre_Produto" name="nombre_Produto" placeholder="Nombre"   maxlength="30" required>
             </div>
+
         </div>
 
         <div class="form-row py-2">
             <label for="stock" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">stock</label>
             <div class="col-sm-5">
-                <input type="number" class="form-control" id="stock" name="stock" placeholder="Stock">
+                <input type="number" class="form-control is invalid" id="stock" name="stock" placeholder="Stock" max="500" min="0" required>
             </div>
+
         </div>
 
         <div class="form-row py-2">
             <label for="fecha_Fabricacion" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Fecha de Fabricacion</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="fecha_Fabricacion" name="fecha_Fabricacion" placeholder="Fecha de fabricacion">
+                <input type="date" class="form-control" id="fecha_Fabricacion" name="fecha_Fabricacion" placeholder="Fecha de fabricacion" min="2022-01-01" max="2022-08-27">
             </div>
         </div>
         
         <div class="form-row py-2">
             <label for="fecha_Vencimiento" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Fecha de Vencimiento</label>
             <div class="col-sm-5">
-                <input type="date" class="form-control" id="fecha_Vencimiento" name="fecha_Vencimiento" placeholder="Fecha de vencimiento">
+                <input type="date" class="form-control" id="fecha_Vencimiento" name="fecha_Vencimiento" placeholder="Fecha de vencimiento" min="2022-08-27" max="2025-31-31">
             </div>
         </div>
 
         <div class="form-row py-2">
             <label for="precio_Venta" class="col-sm-4 text-right py-1 col-form-label col-form-label-lg">Precio</label>
             <div class="col-sm-2">
-                <input type="number" class="form-control" id="precio_Venta" name="precio_Venta" placeholder="precio">
+                <input type="number" class="form-control is invalid" id="precio_Venta" name="precio_Venta" placeholder="precio" min="0" required>
             </div>
+
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto py-3">
-            <button type="button" class="w-75  btn btn-warning btn-lg " id="guardar">Guardar</button>
+            <button type="button" class="w-75  btn btn-warning btn-lg "  id="guardar">Guardar</button>
         </div>
     </form>
+
+
 </body>
 
 </html>
