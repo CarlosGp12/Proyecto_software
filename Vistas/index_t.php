@@ -1,10 +1,9 @@
 <?php
 
 include '../Modelo/config.php';
-include '../Modelo/Conect.php';
+
 include 'carrito.php';
 
-session_start();
 if (isset($_SESSION['username'])) {
 }
 
@@ -123,13 +122,13 @@ if (!isset($_SESSION['rol'])) {
                         <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
                             <tr>
                                 <td width="40%"><?php echo $producto['NOMBRE'] ?></td>
-                                <td width="15%" class="text-center"><?php echo $producto['STOCK'] ?></td>
+                                <td width="15%" class="text-center"><?php echo $producto['CANTIDAD'] ?></td>
                                 <td width="20%" class="text-center">$<?php echo $producto['PRECIO'] ?></td>
-                                <td width="20%" class="text-center">$<?php echo number_format($producto['PRECIO'] * $producto['STOCK'], 2); ?></td>
+                                <td width="20%" class="text-center">$<?php echo number_format($producto['PRECIO'] * $producto['CANTIDAD'], 2); ?></td>
                                 <td width="5%"><button class="btn btn-danger" type="button">B</button></td>
 
                             </tr>
-                            <?php $total = $total + ($producto['PRECIO'] * $producto['STOCK']); ?>
+                            <?php $total = $total + ($producto['PRECIO'] * $producto['CANTIDAD']); ?>
                         <?php } ?>
                         <tr>
                             <td colspan="3" align="right">
@@ -156,12 +155,13 @@ if (!isset($_SESSION['rol'])) {
         <div class="row g-3">
             <?php
 
-            $sentencia = $pdo->prepare("SELECT * FROM `producto`");
-            $sentencia->execute();
-            $listaProductos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+require_once("../Modelo/Productos.php");
+
+$objregistro = new Productos;
+$datos = $objregistro->ObtenerTodos();
 
             ?>
-            <?php foreach ($listaProductos as $producto) { ?>
+            <?php foreach ($datos as $producto) { ?>
                 <div class="col-3">
                     <div class="card" id="datos">
                         <span class="border border-5">

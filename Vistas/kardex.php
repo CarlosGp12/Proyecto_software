@@ -48,7 +48,9 @@ $pdf->SetTextColor(0, 0, 0);
 for ($i=0; $i <count($datos) ; $i++) { 
     $pdf->SetX(10);
     $fecha = $datos[$i]['fecha'];
-    $pdf->Cell(40, 12,  "$fecha", 1, 1, "C");
+    $part1= explode(' ',$fecha);
+    $f_final = $part1[0];
+    $pdf->Cell(40, 12,  "$f_final", 1, 1, "C");
 }
 $pdf->Ln(2);
 

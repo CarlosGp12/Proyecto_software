@@ -1,6 +1,6 @@
 <?php
-include '../Modelo/config.php';
-include '../Modelo/Conect.php';
+include ('../Modelo/config.php');
+    // include ('../Modelo/Conect.php');
 include 'carrito.php';
 
 ?>
@@ -135,12 +135,14 @@ include 'carrito.php';
         <div class="row g-3">
             <?php
 
-            $sentencia = $pdo->prepare("SELECT * FROM `producto`");
-            $sentencia->execute();
-            $listaProductos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+require_once("../Modelo/Productos.php");
+
+$objregistro = new Productos;
+$datos = $objregistro->ObtenerTodos();
+
 
             ?>
-            <?php foreach ($listaProductos as $producto) { ?>
+            <?php foreach ($datos as $producto) { ?>
                 <div class="col-3">
                     <div class="card" id="datos">
                         <span class="border border-5">
