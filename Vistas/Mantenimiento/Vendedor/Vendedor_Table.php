@@ -40,7 +40,7 @@ if (!isset($_SESSION['rol'])) {
     function eliminar(codigo) {
       $.post("../../../Controlador/VendedorController.php", {
         'opcion': 'eliminar',
-        'id': codigo
+        'ID_Vendedor': codigo
       }, respuesta);
 
       window.location.href = "Vendedor_Table.php";

@@ -49,8 +49,9 @@ if (isset($_POST['btnAccion'])) {
                 );
 
                 $_SESSION['CARRITO'][$NumProductos] = $producto;
+                $_SESSION['total'] = $_POST['total'];
             }
-
+            
             break;
         case "Eliminar":
             if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {

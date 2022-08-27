@@ -29,9 +29,11 @@ foreach ($datos as $fila) {
     <div class="container py-4">
 
       <div class="grafBarra">
-        <canvas id="myChart"></canvas>
-        
-        
+        <canvas id="Chart_bar"></canvas>
+      </div>
+
+      <div class="grafBarra">
+        <canvas id="Chart_pie"></canvas>
       </div>
 
   </main>
@@ -74,7 +76,7 @@ foreach ($datos as $fila) {
     }]
   };
 
-  const config = {
+  const bar = {
     type: 'bar',
     data: data,
     options: {
@@ -86,10 +88,24 @@ foreach ($datos as $fila) {
     },
   };
 
+
   var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
+    document.getElementById('Chart_bar'),
+    bar
   );
+
+
+  const pie = {
+  type: 'pie',
+  data: data,
+};
+
+  var myChart = new Chart(
+    document.getElementById('Chart_pie'),
+    pie
+  );
+
+  
 </script>
 
 </html>

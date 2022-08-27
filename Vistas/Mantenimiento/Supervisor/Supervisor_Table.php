@@ -39,7 +39,7 @@ if (!isset($_SESSION['rol'])) {
     function eliminar(codigo) {
       $.post("../../../Controlador/SupervisorController.php", {
         'opcion': 'eliminar',
-        'id': codigo
+        'ID_Supervisor': codigo
       }, respuesta);
 
       window.location.href = "Supervisor_Table.php";

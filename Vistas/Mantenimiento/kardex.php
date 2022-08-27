@@ -1,15 +1,15 @@
 <?php
 
-require_once("../Modelo/Factura.php");
+require_once("../../Modelo/Factura.php");
 
 $objregistro = new Factura;
 $datos = $objregistro->ObtenerTodos();
 
-require('../fpdf/fpdf.php');
+require('../../fpdf/fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 
-$pdf->Image('../img/farmacia.png', 0, 0, 70);
+$pdf->Image('../../img/farmacia.png', 0, 0, 70);
 $pdf->SetFont('Times', 'B', 40);
 $pdf->SetXY(80, 15);
 $pdf->Cell(100, 8, 'KARDEX', 0, 0, 'C', 0);
