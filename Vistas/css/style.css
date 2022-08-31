@@ -14,8 +14,50 @@
 
 }
 
+.titulo{
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 2rem 0;
+}
+
+.centrar{
+  display: grid;
+  place-items: center;
+
+}
+.campo{
+
+  width: 60%;
+  height: 3rem;
+  border-radius: 1rem;
+  margin: 2rem 2rem;
+}
+label{
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 15rem ;
+}
+
+.contenedor_formulario{
+
+  text-align: center;
+  max-width: 50rem;
+  margin: auto;
+  margin-top: 10rem;
+  /* background-color: antiquewhite; */
+}
+
 .producto {
   margin: 0 2rem;
+}
+
+select{
+  width: 60%;
+  height: 3rem;
+  border: none;
+  border-radius: 1rem;
+  margin: 2rem;
 }
 
 .contendor__producto {
@@ -675,6 +717,11 @@ td {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.enviar{
+  font-size: 2rem;
+
 }
 
 canvas{
