@@ -54,6 +54,6 @@ switch ($_POST['opcion']) {
         echo json_encode($datos = $objregistro->ObtenerFiltro($filtro));
         break;
     case 'eliminar':
-        echo json_encode($datos = $objregistro->Eliminar($_POST['ID_Supervisor']));
+        echo json_encode($datos = $objregistro->eliminar($_POST['ID_Supervisor']));
         break;
 }
