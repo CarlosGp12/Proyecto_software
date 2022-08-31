@@ -60,6 +60,7 @@ if (!isset($_SESSION['rol'])) {
         <th scope="col">Fecha de fabricacion</th>
         <th scope="col">Fecha de vencimiento</th>
         <th scope="col">Precio</th>
+        <th scope="col">Compra</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
