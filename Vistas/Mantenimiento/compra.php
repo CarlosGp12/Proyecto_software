@@ -2,7 +2,9 @@
 require '../../Modelo/database.php';
 $db = new DataBase();
 $con = $db->conectar();
-
+$proveedor = $con-> prepare("SELECT * FROM proveedor");
+$proveedor->execute();
+// $Proveedor = $proveedor->fetchALL(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['codigo'];
     $stock = +intval($_POST['stock']);
@@ -62,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     window.onload = cargardatos;
 </script>
 <body class="fondo">
-   
+<!-- $Proveedor = $proveedor->fetchALL(PDO::FETCH_ASSOC) -->
     <div class="contenedor_formulario">
         <a href="Articulo/Supervisor_Table_Admin.php" class="botones enviar left" >Volver</a>
         <h1 class="titulo">Pedir productos</h1>
@@ -73,7 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div>
                     <label for="">Proveedor</label>
                     <select name="" id="">
-                        <option value="">dwad</option>
+                        <?php while($Proveedor = $proveedor->fetchALL(PDO::FETCH_ASSOC)): ?>
+                        <option  value="<?php echo $Proveedor['id']; ?>">
+                            <?php echo $Proveedor['nombre_Proveedor'];?>
+                        </option>
+                    <?php endwhile;?>
                     </select>
                 </div>
                 <div>
