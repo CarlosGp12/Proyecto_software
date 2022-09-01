@@ -694,6 +694,11 @@ td {
 
 }
 
+.left{
+  display: flex;
+  width: 7.5rem;
+}
+
 .grid {
   display: flex;
   padding: 2rem;

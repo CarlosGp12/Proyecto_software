@@ -62,10 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     window.onload = cargardatos;
 </script>
 <body class="fondo">
+   
     <div class="contenedor_formulario">
+        <a href="Articulo/Supervisor_Table_Admin.php" class="botones enviar left" >Volver</a>
         <h1 class="titulo">Pedir productos</h1>
         <form id="datos" method="post" action="compra.php">
-            <form id="datos" method="post">
+            <form id="datos"  method="post">
                 <input type="text" class="form-control is invalid" id="codigo" name="codigo" placeholder="Código" hidden>
 
                 <div>
