@@ -61,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     window.onload = cargardatos;
 </script>
-
-<section class="page-content">
+<body class="fondo">
     <div class="contenedor_formulario">
         <h1 class="titulo">Pedir productos</h1>
         <form id="datos" method="post" action="compra.php">
@@ -72,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div>
                     <label for="">Proveedor</label>
                     <select name="" id="">
-                        <option value=""></option>
+                        <option value="">dwad</option>
                     </select>
                 </div>
                 <div>
@@ -87,6 +86,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="botones enviar" name="guardar" id="guardar">Enviar</button>
             </form>
     </div>
-</section>
 </body>
 </html>

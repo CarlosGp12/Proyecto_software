@@ -31,6 +31,8 @@
   height: 3rem;
   border-radius: 1rem;
   margin: 2rem 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 label{
   display: inline-block;
@@ -58,6 +60,8 @@ select{
   border: none;
   border-radius: 1rem;
   margin: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .contendor__producto {
@@ -78,6 +82,10 @@ select{
 .edi {
   position: relative;
   left: 250px;
+}
+
+.fondo{
+  background-color: #f0f1f6;
 }
 
 /* RESET RULES
