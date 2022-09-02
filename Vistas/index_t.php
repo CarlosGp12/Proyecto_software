@@ -63,6 +63,23 @@ if (!isset($_SESSION['rol'])) {
                                 Dashboard
                             </a>
                         </li>
+                        <li>
+                            <a href="" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-grid" viewBox="0 0 16 16">
+                                    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                                </svg>
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="nav-link text-white">
+                                <svg class="bi d-block mx-auto mb-1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                </svg>
+                                Customers
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -91,8 +108,8 @@ if (!isset($_SESSION['rol'])) {
         </div>
         <div class="offcanvas-body">
             <?php if (!empty($_SESSION['CARRITO'])) { ?>
-                <table class="table table-light table-bordered">
-                    <tbody>
+                <table class="table table-bordered border border-dark border-3">
+                    <thead class="table-dark">
                         <tr>
                             <th width="40%">Nombre</th>
                             <th width="15%" class="text-center">Cantidad</th>
@@ -101,6 +118,8 @@ if (!isset($_SESSION['rol'])) {
                             <th width="5%">--</th>
 
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php $total = 0; ?>
                         <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
                             <tr>
@@ -110,53 +129,36 @@ if (!isset($_SESSION['rol'])) {
                                 <td width="20%" class="text-center">$<?php echo number_format($producto['PRECIO'] * $producto['CANTIDAD'], 2); ?></td>
                                 <td width="5%">
                                     <form action="" method="post">
-                                         <input  name="id"  value="<?php echo $producto['id'] ?>"> 
+                                        <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['ID'], COD, KEY); ?>">
 
-                                        <button class="btn btn-danger" type="button" name="btnAccion" value="Eliminar">B</button>
+                                        <button type="submit" class="btn-close bg-danger" aria-label="Close" name="btnAccion" value="Eliminar"></button>
                                     </form>
                                 </td>
 
                             </tr>
-                            <?php 
-                            $total = $total + ($producto['PRECIO'] * $producto['CANTIDAD']); 
-                      
-
-                                $_SESSION['total'] = $total;
-                            ?>
+                            <?php $total = $total + ($producto['PRECIO'] * $producto['CANTIDAD']); ?>
                         <?php } ?>
                         <tr>
                             <td colspan="3" align="right">
                                 <h3>Total</h3>
                             </td>
                             <td align="right">
-                                <h3><?php echo number_format($total, 2); ?></h3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5">
-                                <form action="pagar.php" method="post">
-                                    <div class="alert alert-success">
-                                        <div class="form-group">
-                                            <label for="my-input">Nombre de contacto</label>
-                                            <input id="nombre_Cliente" name="nombre_Cliente" class="form-control" type="namespace" placeholder="Escribe El nombre del cliente" require>
-                                            <label for="my-input">direccion de contacto</label>
-                                            <input id="direccion_Cliente" name="direccion_Cliente" class="form-control" type="namespace" placeholder="Escribe la direccion del cliente" require>
-                                            <label for="my-input">Telefono de contacto</label>
-                                            <input id="celular" name="celular" class="form-control" type="namespace" placeholder="Escribe El celular del cliente" require>
-                                        </div>
-
-                                    </div>
-                                    <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAccion" value="proceder">Proceder a pagar >></button>
-                                </form>
+                                <h4>$ <?php echo number_format($total, 2); ?></h4>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
             <?php } else { ?>
                 <div class="alert alert-success">
                     No hay Productos en el Carrito
                 </div>
             <?php } ?>
+        </div>
+        <div class="container">
+            <a href="MostrarCarrito.php">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAccion" value="proceder">Continuar con los datos >></button>
+            </a>
         </div>
     </div>
     <!--productos desde base-->
@@ -188,8 +190,8 @@ if (!isset($_SESSION['rol'])) {
 
                             <form action="" method="post">
                                 <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['id'], COD, KEY); ?>">
-                                <input type="hidden" name="nombre_Produto" id="nombre_Produto" value="<?php echo openssl_encrypt($producto['nombre_Produto'], COD, KEY);?>">
-                                <input type="hidden" name="precio_Venta" id="precio_Venta" value="<?php echo openssl_encrypt($producto['precio_Venta'], COD, KEY);?>">
+                                <input type="hidden" name="nombre_Produto" id="nombre_Produto" value="<?php echo openssl_encrypt($producto['nombre_Produto'], COD, KEY); ?>">
+                                <input type="hidden" name="precio_Venta" id="precio_Venta" value="<?php echo openssl_encrypt($producto['precio_Venta'], COD, KEY); ?>">
                                 <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1, COD, KEY); ?>">
 
                                 <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
