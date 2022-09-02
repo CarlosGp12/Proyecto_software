@@ -12,8 +12,6 @@ if (!isset($_SESSION['rol'])) {
 }
 ?>
 
-
-
 <title>Perfil</title>
 <script type='text/javascript' src="../../js/jquery-1.7.1.min.js"> </script>
 <script type='text/javascript'>
@@ -39,6 +37,10 @@ if (!isset($_SESSION['rol'])) {
 
   function editar(codigo) {
     document.location.href = "update_a.php?id=" + codigo;
+  }
+
+  function comprar(codigo) {
+    document.location.href = "../compra.php?id=" + codigo;
   }
   window.onload = cargarcontrolador;
 </script>
