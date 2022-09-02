@@ -30,6 +30,9 @@ if (isset($_POST['btnAccion'])) {
                 $mensaje .= "Incorrecto" . $CANTIDAD;
                 break;
             }
+            
+
+
             if (!isset($_SESSION['CARRITO'])) {
                 $producto = array(
                     'ID' => $ID,
@@ -49,15 +52,14 @@ if (isset($_POST['btnAccion'])) {
                 );
 
                 $_SESSION['CARRITO'][$NumProductos] = $producto;
-                $_SESSION['total'] = $_POST['total'];
             }
-            
+
             break;
         case "Eliminar":
             if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {
                 $ID = openssl_decrypt($_POST['id'], COD, KEY);
                 foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                    if ($producto['id'] == $ID) {
+                    if ($producto['ID'] == $ID) {
                         unset($_SESSION['CARRITO'][$indice]);
                     }
                 }
