@@ -1,10 +1,10 @@
 <?php
 
-include '../Modelo/database.php';
-
+include '../Modelo/config.php';
 $conexion = new Database();
 $pdo = $conexion->conectar();
 include 'carrito.php';
+
 
 if (isset($_SESSION['username'])) {
 }
@@ -16,6 +16,7 @@ if (!isset($_SESSION['rol'])) {
         header('location: login.php');
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +80,7 @@ if (!isset($_SESSION['rol'])) {
         <div class="px-3 py-2 border-bottom mb-3">
             <div class="container d-flex">
                 <div class="me-auto p-2 align-self-center">
-                    <h4> Bienvenido
+                    <h4> Usuario:
                         <i>
                             <?php echo $_SESSION['username'] ?>
                         </i>
@@ -94,75 +95,46 @@ if (!isset($_SESSION['rol'])) {
     </header>
 
     <?php
+
+
     if ($_POST) {
+
         $total = 0;
-        $SID = session_id();
-        // echo "<pre>";
-        // var_dump($_SESSION['total']);
-        // echo "<pre>";
-        $nombre_Cliente = $_POST['nombre_Cliente'];
-        $direccion_Cliente = $_POST['direccion_Cliente'];
-        $celular = $_POST['celular'];
-        $sentencia = $pdo->prepare("INSERT INTO cliente (nombre_Cliente, direccion_Cliente, celular) 
-        VALUES ('$nombre_Cliente', '$direccion_Cliente', '$celular');");
-        // $sentencia->execute();
-        // $resultado = $sentencia->fetchALL(PDO::FETCH_ASSOC);
-        // echo "<pre>";
-        // var_dump($_SESSION);
-        // echo "<pre>";
+        $SID = 33;
+
+        $nom = $_POST['nombre_Cliente'];
+        $dir = $_POST['direccion'];
+        $cel = $_POST['celular'];
         foreach ($_SESSION['CARRITO'] as $indice => $producto) {
             $total = $total + ($producto['PRECIO'] * $producto['CANTIDAD']);
         }
-        ?>
-        <table class="table" id="indice">
-        <thead>
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Stock</th>   
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <?php
+
+
+        $sentencia = $pdo->prepare('INSERT INTO `cliente` (`id`,`nombre_Cliente`,`direccion_Cliente`,`celular`) 
+        VALUES (NULL,:nombre_Cliente, :direccion_Cliente, :celular);');
+
+        $sentencia->bindParam(":nombre_Cliente", $nom);
+        $sentencia->bindParam(":direccion_Cliente", $dir);
+        $sentencia->bindParam(":celular", $cel);
+        $sentencia->execute();
+        $idCliente = $pdo->lastInsertId();
+
         foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-
-            $field1name = $producto["NOMBRE"];
-            $field1name1 = $producto["PRECIO"];
-            $field1name2 = $producto["CANTIDAD"];
-           
-            echo '<table class="table" id="indice">
-            <tr> 
-            <td>'.$field1name.'</td> 
-            <td>'.$field1name1.'</td>
-            <td>'.$field1name2.'</td>
-            </tr>
-            </table>';
+            $sentencia = $pdo->prepare('INSERT INTO 
+                    `factura` (`id`, `ID_Usuario`, `ID_Cliente`, `fecha`, `ID_Producto`, `nombre_Producto`, `precio_Venta`, `cantidad`, `total`) 
+                    VALUES (NULL, :ID_Usuario, :ID_Cliente, NOW(), :ID_Producto, :nombre_Producto, :precio_Venta, :cantidad, :total);');
+            $sentencia->bindParam(":ID_Usuario", $SID);
+            $sentencia->bindParam(":ID_Cliente", $idCliente);
+            $sentencia->bindParam(":ID_Producto", $producto['ID']);
+            $sentencia->bindParam(":nombre_Producto", $producto['NOMBRE']);
+            $sentencia->bindParam(":precio_Venta", $producto['PRECIO']);
+            $sentencia->bindParam(":cantidad", $producto['CANTIDAD']);
+            $sentencia->bindParam(":total", $total);
+            $sentencia->execute();
         }
-?>
-         <label> TOTAL: </label>
-         <?php
-  echo $_SESSION['total'];
-   
-
-  
-        // require_once("../Modelo/Clientes.php");
-        // $objregistro = new Clientes;
-        // $objregistro->nuevo($datos);
 
 
-
-
-        // $query = $con->prepare("UPDATE reparacion SET repuesto = '$repuesto + $repuesto1',  precio = '$precioF' WHERE id = $id");
-
-        // $sentencia->bindParam(":nombre_Cliente", $SID);
-        // $sentencia->bindParam(":direccion_Cliente", $direccion);
-        // $sentencia->bindParam(":celular", $celular);
-
-
-        // $sentencia->$execute();
-        // echo "<h3>" . $total . "</h3>";
+        echo "<br><h3>" . $total . "</h3>";
     }
     ?>
 
