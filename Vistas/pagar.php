@@ -1,6 +1,7 @@
 <?php
 
 include '../Modelo/config.php';
+include '../Modelo/database.php';
 $conexion = new Database();
 $pdo = $conexion->conectar();
 include 'carrito.php';
@@ -38,7 +39,7 @@ if (!isset($_SESSION['rol'])) {
         <div class="px-3 py-2 bg-dark text-white">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    <a href="index_t.php" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-pulse-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9H1.475ZM.879 8C-2.426 1.68 4.41-2 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.88Z" />
                         </svg>
@@ -101,6 +102,8 @@ if (!isset($_SESSION['rol'])) {
 
         $total = 0;
         $SID = 33;
+        $detalle = 'venta';
+
 
         $nom = $_POST['nombre_Cliente'];
         $dir = $_POST['direccion'];
@@ -121,12 +124,16 @@ if (!isset($_SESSION['rol'])) {
 
         foreach ($_SESSION['CARRITO'] as $indice => $producto) {
             $sentencia = $pdo->prepare('INSERT INTO 
-                    `factura` (`id`, `ID_Usuario`, `ID_Cliente`, `fecha`, `ID_Producto`, `nombre_Producto`, `precio_Venta`, `cantidad`, `total`) 
-                    VALUES (NULL, :ID_Usuario, :ID_Cliente, NOW(), :ID_Producto, :nombre_Producto, :precio_Venta, :cantidad, :total);');
+                    `factura` (`id`, `ID_Usuario`, `ID_Cliente`, `fecha`, `detalle`, `ID_Producto`, `nombre_Producto`, `nombre_Proveedor`,`precio_Venta`, `cantidad`, `total`) 
+                    VALUES (NULL, :ID_Usuario, :ID_Cliente, NOW(), :detalle, :ID_Producto, :nombre_Producto, :nombre_Proveedor, :precio_Venta, :cantidad, :total);');
+                    // var_dump($sentencia);
+                    // exit;
             $sentencia->bindParam(":ID_Usuario", $SID);
             $sentencia->bindParam(":ID_Cliente", $idCliente);
+            $sentencia->bindParam(":detalle", $detalle);
             $sentencia->bindParam(":ID_Producto", $producto['ID']);
             $sentencia->bindParam(":nombre_Producto", $producto['NOMBRE']);
+            $sentencia->bindParam(":nombre_Proveedor", $nombre_p);
             $sentencia->bindParam(":precio_Venta", $producto['PRECIO']);
             $sentencia->bindParam(":cantidad", $producto['CANTIDAD']);
             $sentencia->bindParam(":total", $total);
