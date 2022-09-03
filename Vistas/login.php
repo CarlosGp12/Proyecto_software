@@ -22,7 +22,7 @@
                 <div class="datos">
                 <input type="text" required 
                 name="username">
-                <label> Correo </label>
+                <label> Usuario </label>
                 </div>
 
             <div class="datos">

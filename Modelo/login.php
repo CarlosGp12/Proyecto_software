@@ -46,14 +46,14 @@
                 break;
     
                 case 3:
-                    header('location: ../Vistas/index.html');
+                    header('location: ../Vistas/index_v.php');
                     break;
     
                 default:
             }
  
         }else{
-            header("Location: http://localhost/Proyecto_software/Vistas/login.php?error=Usuario o Contraseña Incorrecta");
+            header("Location: ../Vistas/login.php?error=Usuario o Contraseña Incorrecta");
              exit();
         }   
     }else{

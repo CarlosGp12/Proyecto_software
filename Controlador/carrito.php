@@ -1,5 +1,5 @@
 <?php
-require '../Modelo/config.php';
+require 'config.php';
 
     if(isset($_POST['id'])){
         $id = $_POST['id'];
@@ -19,7 +19,7 @@ require '../Modelo/config.php';
 
         }else{
             
-            $datos['ok1']= false;
+            $datos['ok']= false;
         }
 
     }else{
